@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
-const User = mongoose.model("User")
+const User = mongoose.model("User");
+const passport = require('passport');
 
 router.post('/register', async (req, res, next) => {
   const { username } = req.body;
@@ -33,7 +34,19 @@ router.post('/register', async (req, res, next) => {
       }
     })
   });
-  
 });
+
+router.post("/login", async(req,res,next) => {
+  passport.authenticate("local", async (err, user) => {
+    if (err) return next(err);
+    if(!user) {
+      const err = new Error("Invalid Credentials");
+      err.statusCode = 400;
+      err.errors = { username: "Invalid Credentials" }
+      return next(err)
+    }
+    return res.json({user})
+  })(req,res,next);
+})
 
 module.exports = router;

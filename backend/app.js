@@ -7,6 +7,8 @@ const cors = require("cors");
 const csurf = require("csurf");
 const debug = require('debug')
 require('./models/User');
+require("./config/passport");
+const passport = require("passport");
 const usersRouter = require('./routes/api/users');
 const tweetsRouter = require("./routes/api/tweets");
 const csrfRouter = require('./routes/api/csrf')
@@ -18,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(passport.initialize());
 if (!isProduction) app.use(cors())
 app.use(
   csurf({
