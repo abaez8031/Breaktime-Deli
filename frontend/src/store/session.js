@@ -19,7 +19,7 @@ const receiveErrors = errors => ({
   errors
 })
 
-const clearErrors = () => ({
+export const clearSessionErrors = () => ({
   type: CLEAR_SESSION_ERRORS
 })
 
@@ -62,6 +62,7 @@ export const sessionErrorsReducer = (state = null, action) => {
   switch(action.type) {
     case RECEIVE_SESSION_ERRORS:
       return action.errors
+    case RECEIVE_USER:
     case CLEAR_SESSION_ERRORS:
       return null
     default:
