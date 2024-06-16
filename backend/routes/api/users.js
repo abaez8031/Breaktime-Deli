@@ -6,8 +6,9 @@ const User = mongoose.model("User");
 const passport = require("passport");
 const { loginUser, restoreUser } = require("../../config/passport");
 const { isProduction } = require("../../config/keys")
+const validateUserInput = require("../../validations/User")
 
-router.post("/register", async (req, res, next) => {
+router.post("/register", validateUserInput, async (req, res, next) => {
   const { username } = req.body;
   const user = await User.findOne({ username });
   if (user) {
@@ -37,7 +38,7 @@ router.post("/register", async (req, res, next) => {
   });
 });
 
-router.post("/login", async (req, res, next) => {
+router.post("/login", validateUserInput, async (req, res, next) => {
   passport.authenticate("local", async (err, user) => {
     if (err) return next(err);
     if (!user) {
