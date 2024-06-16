@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const passport = require('passport');
+const { loginUser } = require("../../config/passport")
 
 router.post('/register', async (req, res, next) => {
   const { username } = req.body;
@@ -27,7 +28,7 @@ router.post('/register', async (req, res, next) => {
       try {
         newUser.hashedPassword = hashedPassword;
         const user = await newUser.save();
-        return res.json({ user });
+        return res.json(await loginUser(user));
       }
       catch(err) {
         next(err);
@@ -45,7 +46,7 @@ router.post("/login", async(req,res,next) => {
       err.errors = { username: "Invalid Credentials" }
       return next(err)
     }
-    return res.json({user})
+    return res.json(await loginUser(user))
   })(req,res,next);
 })
 

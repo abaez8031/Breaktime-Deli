@@ -3,6 +3,8 @@ const LocalStrategy = require('passport-local');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const jwt = require("jsonwebtoken")
+const { secretOrKey } = require("./keys")
 
 passport.use(new LocalStrategy({
   session: false,
@@ -18,3 +20,19 @@ passport.use(new LocalStrategy({
   } else
     done(null, false);
 }));
+
+exports.loginUser = async(user) => {
+  const userInfo = {
+    _id: user._id,
+    username: user.username
+  }
+  const token = await jwt.sign(
+    userInfo,
+    secretOrKey,
+    { expiresIn: 3600}
+  )
+  return {
+    user: userInfo,
+    token
+  }
+}
