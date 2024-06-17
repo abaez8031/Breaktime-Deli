@@ -63,4 +63,19 @@ router.get("/current", restoreUser, (req,res) => {
   })
 })
 
+router.delete("/:id", async(req,res,next) => {
+  try {
+    const { id } = req.params;
+    const deletedUser = await User.findByIdAndDelete(id);
+    if (!deletedUser) {
+      const err = new Error("User not found");
+      err.statusCode = 404;
+      return next(err)
+    }
+    return res.json(deletedUser);
+  } catch(err) {
+    return next(err)
+  }
+})
+
 module.exports = router;
