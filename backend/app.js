@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const { isProduction } = require("./config/keys");
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -10,7 +9,7 @@ require('./models/User');
 require("./config/passport");
 const passport = require("passport");
 const usersRouter = require('./routes/api/users');
-const tweetsRouter = require("./routes/api/tweets");
+const productsRouter = require("./routes/api/products");
 const csrfRouter = require('./routes/api/csrf')
 const app = express();
 
@@ -34,7 +33,7 @@ app.use(
 
 // Attach routers
 app.use('/api/users', usersRouter);
-app.use('/api/tweets', tweetsRouter);
+app.use('/api/products', productsRouter);
 app.use('/api/csrf', csrfRouter)
 
 // Custom middleware for catching all unmatched requests and formatting a 404 error to be sent as the response.
