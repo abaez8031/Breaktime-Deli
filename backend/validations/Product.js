@@ -12,3 +12,5 @@ const validateProductInput = [
     .withMessage('Please enter a valid price'),
   handleValidationErrors
 ];
+
+module.exports = validateProductInput;
