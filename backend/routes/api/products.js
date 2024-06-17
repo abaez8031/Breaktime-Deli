@@ -12,7 +12,7 @@ router.get("/", async (req,res,next) => {
   }
 })
 
-router.post("/", validateProductInput, async (req,res,next) => {
+router.post("/", async (req,res,next) => {
   try {
     const { name, price, description } = req.body;
     const foundProduct = Product.findOne({name});

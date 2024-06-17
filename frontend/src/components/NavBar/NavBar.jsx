@@ -1,10 +1,15 @@
 import "./NavBar.css"
+import { Link } from "react-router-dom"
 
 const NavBar = () => {
   return (
-    <div className="nav-bar">
-      
-    </div>
+    <ul className="nav-bar">
+      <li><Link to="/register">Register</Link></li>
+      <li><Link to="/login">Login</Link></li>
+      <li>Products</li>
+      <li>Suggestions</li>
+      <li>Logout</li>
+    </ul>
   )
 }
 

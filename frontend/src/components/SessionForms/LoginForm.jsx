@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, login } from "../../store/session";
+import "./LoginForm.css"
 
 const LoginForm = () => {
   const [username,setUsername] = useState("");
@@ -21,16 +22,17 @@ const LoginForm = () => {
 
   return (
     <>
-    <h2>Login Form</h2>
-    <form onSubmit={handleSubmit}>
-      <div className="errors">{errors?.username}</div>
-      <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}>
-      </input>
-      <div className="errors">{errors?.password}</div>
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}>
-      </input>
-      <button>Submit</button>
-    </form>
+    <div className="login-form-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div className="errors">{errors?.username}</div>
+        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}>
+        </input>
+        <div className="errors">{errors?.password}</div>
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}>
+        </input>
+        <button>Submit</button>
+      </form>
+    </div>
     </>
   )
 }

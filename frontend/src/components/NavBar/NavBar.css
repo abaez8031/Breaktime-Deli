@@ -1,5 +1,21 @@
 .nav-bar {
   width: 100vw;
   height: 100px;
-  background-color: black;
+  background-color: #a2d2ff;
+  display: flex;
+  justify-content: space-between;
+  background-image:linear-gradient( 
+                to right, #cdb4db, #a2d2ff)
+}
+
+.nav-bar li {
+  width: 10%;
+  height: 100%;
+  font-size: 20px;
+  text-align: center;
+  align-content: center;
+}
+
+.nav-bar li a {
+  color: lightslategray;
 }
