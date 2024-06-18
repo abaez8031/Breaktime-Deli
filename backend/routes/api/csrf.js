@@ -11,4 +11,4 @@ if(!isProduction) {
   })
 }
 
-module.exports = router
+module.exports = router;

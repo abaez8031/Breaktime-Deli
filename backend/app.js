@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(passport.initialize());
-if (!isProduction) app.use(cors())
+if (!isProduction) app.use(cors());
 app.use(
   csurf({
     cookie: {
