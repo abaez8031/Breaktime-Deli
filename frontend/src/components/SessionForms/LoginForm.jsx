@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, login } from "../../store/session";
+import { Link } from "react-router-dom"
 import "./LoginForm.css"
 
 const LoginForm = () => {
@@ -23,6 +24,8 @@ const LoginForm = () => {
   return (
     <>
     <div className="login-form-container">
+      <h2 className="login-form-header">Login</h2>
+      <p>Don't have an account? <Link to="/register">Sign Up</Link></p>
       <form className="login-form" onSubmit={handleSubmit}>
         <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}>
         </input>
@@ -30,7 +33,7 @@ const LoginForm = () => {
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}>
         </input>
         <div className="errors">{errors?.password}</div>
-        <button>Login</button>
+        <button className="login-btn">Login</button>
       </form>
     </div>
     </>

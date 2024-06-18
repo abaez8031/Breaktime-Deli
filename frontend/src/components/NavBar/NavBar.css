@@ -1,11 +1,10 @@
 .nav-bar {
   width: 100vw;
-  height: 100px;
+  height: 15vh;
   background-color: #a2d2ff;
   display: flex;
   justify-content: space-between;
-  background-image:linear-gradient( 
-                to right, #cdb4db, #a2d2ff)
+  background-image: linear-gradient(to right, #cdb4db, #a2d2ff);
 }
 
 .nav-bar li {
