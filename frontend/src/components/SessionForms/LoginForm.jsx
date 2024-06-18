@@ -7,7 +7,6 @@ const LoginForm = () => {
   const [username,setUsername] = useState("");
   const [password, setPassword] = useState("");
   const errors = useSelector(state => state.errors.session);
-  console.log(errors)
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -25,12 +24,12 @@ const LoginForm = () => {
     <>
     <div className="login-form-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <div className="errors">{errors?.username}</div>
         <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}>
         </input>
-        <div className="errors">{errors?.password}</div>
+        <div className="errors">{errors?.username}</div>
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}>
         </input>
+        <div className="errors">{errors?.password}</div>
         <button>Login</button>
       </form>
     </div>

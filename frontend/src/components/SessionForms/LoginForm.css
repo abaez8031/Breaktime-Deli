@@ -19,8 +19,12 @@
   align-content: center;
 }
 
-.login-form input, button {
+.login-form input, button{
   align-content: center;
   width: 50%;
   margin: auto;
+}
+
+.errors {
+  color: red;
 }
