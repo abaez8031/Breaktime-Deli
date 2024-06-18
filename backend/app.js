@@ -10,7 +10,8 @@ require("./config/passport");
 const passport = require("passport");
 const usersRouter = require('./routes/api/users');
 const productsRouter = require("./routes/api/products");
-const csrfRouter = require('./routes/api/csrf')
+const csrfRouter = require('./routes/api/csrf');
+const reviewsRouter = require('./routes/api/reviews');
 const app = express();
 
 // Middleware
@@ -34,7 +35,8 @@ app.use(
 // Attach routers
 app.use('/api/users', usersRouter);
 app.use('/api/products', productsRouter);
-app.use('/api/csrf', csrfRouter)
+app.use('/api/csrf', csrfRouter);
+app.use('/api/reviews', reviewsRouter);
 
 // Custom middleware for catching all unmatched requests and formatting a 404 error to be sent as the response.
 app.use((req, res, next) => {

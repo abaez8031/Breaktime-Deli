@@ -18,3 +18,8 @@
 .nav-bar li a {
   color: lightslategray;
 }
+
+.logout {
+  cursor: pointer;
+  display: inline;
+}

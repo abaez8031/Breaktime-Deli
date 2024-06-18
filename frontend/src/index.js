@@ -5,6 +5,7 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import configureStore from "./store/store";
+import { logout } from "./store/session";
 
 let store = configureStore();
 
@@ -17,6 +18,9 @@ const Root = () => {
   </Provider>
   )
 };
+
+window.store = store
+window.logout = logout;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

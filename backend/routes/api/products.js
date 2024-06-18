@@ -28,17 +28,17 @@ router.post("/", async (req,res,next) => {
       name, price, description
     })
     const savedProduct = newProduct.save()
-    return res.status(201).json(savedProduct)
+    res.status(201).json(savedProduct)
   } catch(err) {
     next(err)
   }
 })
 
 router.delete("/:id", async (req,res,next) => {
+  const { id } = req.params;
   try {
-    const { id } = req.params;
     const deletedProduct = await Product.findByIdAndDelete(id);
-    return res.json(deletedProduct)
+    res.json(deletedProduct)
   } catch (err) {
     next(err);
   }
@@ -54,7 +54,7 @@ router.patch("/:id", validateProductInput, async (req,res,next) => {
       err.statusCode = 404;
       return next(err)
     }
-    return res.json(updatedProduct)
+    res.json(updatedProduct)
   } catch (err) {
     next(err)
   }
