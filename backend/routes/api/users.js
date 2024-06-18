@@ -6,9 +6,10 @@ const User = mongoose.model("User");
 const passport = require("passport");
 const { loginUser, restoreUser } = require("../../config/passport");
 const { isProduction } = require("../../config/keys")
-const validateUserInput = require("../../validations/User")
+const validateLoginInput = require("../../validations/Login")
+const validateRegisterInput = require("../../validations/Register")
 
-router.post("/register", validateUserInput, async (req, res, next) => {
+router.post("/register", validateRegisterInput, async (req, res, next) => {
   const { username } = req.body;
   const user = await User.findOne({ username });
   if (user) {
@@ -38,13 +39,13 @@ router.post("/register", validateUserInput, async (req, res, next) => {
   });
 });
 
-router.post("/login", validateUserInput, async (req, res, next) => {
+router.post("/login", validateLoginInput, async (req, res, next) => {
   passport.authenticate("local", async (err, user) => {
     if (err) return next(err);
     if (!user) {
       const err = new Error("Invalid Credentials");
       err.statusCode = 400;
-      err.errors = { username: "Invalid Credentials" };
+      err.errors = { password: "Invalid username or password" };
       return next(err);
     }
     return res.json(await loginUser(user));

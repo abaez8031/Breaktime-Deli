@@ -1,16 +1,17 @@
 const { check } = require("express-validator");
 const handleValidationErrors = require('./handleValidationErrors');
 
-const validateUserInput = [
+const validateRegisterInput = [
   check('username')
-    .exists({ checkFalsy: true }).withMessage("")
+    .exists({ checkFalsy: true })
+    .withMessage("Please enter a username")
     .isLength({ min: 2, max: 30 })
     .withMessage('Username is invalid'),
   check('password')
-    .exists({ checkFalsy: true })
+    .exists({ checkFalsy: true }).withMessage("Please enter a password")
     .isLength({ min: 6, max: 30 })
     .withMessage('Password must be between 6 and 30 characters'),
   handleValidationErrors
 ];
 
-module.exports = validateUserInput;
+module.exports = validateRegisterInput;
