@@ -7,6 +7,7 @@ const LoginForm = () => {
   const [username,setUsername] = useState("");
   const [password, setPassword] = useState("");
   const errors = useSelector(state => state.errors.session);
+  console.log(errors)
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -30,7 +31,7 @@ const LoginForm = () => {
         <div className="errors">{errors?.password}</div>
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}>
         </input>
-        <button>Submit</button>
+        <button>Login</button>
       </form>
     </div>
     </>

@@ -26,7 +26,7 @@ const SignupForm = () => {
       <input type='text' placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
       <div>{errors?.password}</div>
       <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
-      <button>Submit</button>
+      <button>Create Account</button>
     </form>
     </>
   )
