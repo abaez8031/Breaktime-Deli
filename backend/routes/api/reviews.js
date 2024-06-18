@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', async (req,res, next) => {
   try {
     const reviews = await Review.find({});
-    return res.json(reviews)
+    res.json(reviews)
   } catch(err) {
     next(err)
   }
