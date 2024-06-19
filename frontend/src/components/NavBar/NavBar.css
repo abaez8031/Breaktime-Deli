@@ -22,4 +22,5 @@
 .logout {
   cursor: pointer;
   display: inline;
+  color: lightslategray
 }

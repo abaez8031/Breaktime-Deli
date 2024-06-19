@@ -6,6 +6,8 @@ import "./reset.css"
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getCurrentUser } from "./store/session";
+import ReviewsPage from "./components/ReviewsPage/ReviewsPage";
+import SuggestionsPage from "./components/SuggestionsPage/SuggestionsPage/SuggestionsPage";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -24,6 +26,12 @@ const App = () => {
       </Route>
       <Route exact path="/register">
         <SignupForm/>
+      </Route>
+      <Route exact path="/reviews">
+        <ReviewsPage/>
+      </Route>
+      <Route exact path="/suggestions">
+        <SuggestionsPage/>
       </Route>
     </Switch>
     </>
