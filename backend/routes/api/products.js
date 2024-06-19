@@ -5,14 +5,14 @@ const router = express.Router();
 
 router.get("/", async (req,res,next) => {
   try {
-    const products = await Product.find()
+    const products = await Product.find({})
     return res.json(products)
   } catch(err) {
     next(err)
   }
 })
 
-router.post("/", async (req,res,next) => {
+router.post("/", validateProductInput, async (req,res,next) => {
   try {
     const { name, price, description } = req.body;
     const foundProduct = Product.findOne({name});

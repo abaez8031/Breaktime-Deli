@@ -19,9 +19,6 @@ const Root = () => {
   )
 };
 
-window.store = store
-window.logout = logout;
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
