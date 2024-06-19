@@ -9,7 +9,7 @@ const SuggestionsPage = () => {
   useEffect(() => {
     dispatch(fetchAllSuggestions())
   }, [dispatch])
-  
+
   return (<>
   <h1>Suggestions Page</h1>
   </>)
