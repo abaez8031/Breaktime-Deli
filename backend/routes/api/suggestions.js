@@ -5,7 +5,7 @@ const validateSuggestionInput = require("../../validations/Suggestion");
 
 router.get("/", async (req,res,next) => {
   try {
-    const suggestions = await Suggestion.find({});
+    const suggestions = await Suggestion.find({}).populate("userId", "username");
     res.json(suggestions)
   } catch(err) {
     next(err)

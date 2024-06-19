@@ -1,0 +1,18 @@
+.suggestions-page-item-container {
+  border-top: 2px solid gray;
+  padding: 10px 0;
+  border-radius: 5px;
+  margin: 10px 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.suggestions-item-username {
+  padding: 5px;
+}
+
+.suggestions-item-text {
+  padding: 5px;
+}
