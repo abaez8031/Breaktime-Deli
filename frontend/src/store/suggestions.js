@@ -106,7 +106,7 @@ const suggestionsReducer = (initialState = {}, action) => {
   }
 }
 
-export const suggestionsErrorsReducer = (initialState = null, action) => {
+export const suggestionErrorsReducer = (initialState = null, action) => {
   switch (action.type) {
     case RECEIVE_SUGGESTION_ERRORS:
       return action.errors;

@@ -54,15 +54,14 @@ export const getCurrentUser = () => async dispatch => {
   return dispatch(receiveUser(user));
 };
 
-const initialState = { user: null }
-const sessionReducer = (state = initialState, action) => {
+const sessionReducer = (initialState = {user: null}, action) => {
   switch(action.type) {
     case RECEIVE_USER:
-      return {...state, user: action.user}
+      return {...initialState, user: action.user}
     case REMOVE_USER:
       return initialState;
     default:
-      return state;
+      return initialState;
   }
 }
 export const sessionErrorsReducer = (state = null, action) => {

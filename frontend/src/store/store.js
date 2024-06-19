@@ -4,11 +4,13 @@ import session from "./session";
 import suggestions from "./suggestions"
 import errors from "./errors";
 import reviews from "./reviews"
+import products from "./products"
 
 const rootReducer = combineReducers({
   session,
   suggestions,
   reviews,
+  products,
   errors
 })
 

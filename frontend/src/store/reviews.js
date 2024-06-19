@@ -108,7 +108,7 @@ const reviewsReducer = (initialState = {}, action) => {
   }
 }
 
-export const reviewsErrorReducer = (state = null, action) => {
+export const reviewErrorsReducer = (initialState = null, action) => {
   switch(action.type) {
     case RECEIVE_REVIEW_ERRORS:
       return action.errors
@@ -116,7 +116,7 @@ export const reviewsErrorReducer = (state = null, action) => {
     case RECEIVE_REVIEW:
       return null
     default:
-      return state
+      return initialState
   }
 }
 
