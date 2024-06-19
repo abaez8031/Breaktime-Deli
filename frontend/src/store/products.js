@@ -22,9 +22,13 @@
 // })
 
 // export const fetchAllProducts = () => async dispatch => {
-//   const res = await jwtFetch("/api/products");
-//   const products = await res.json();
-//   dispatch(receiveProducts(products));
+//   try {
+//     const res = await jwtFetch("/api/products");
+//     const products = await res.json();
+//     dispatch(receiveProducts(products));
+//   } catch(err) {
+//     // handle error
+//   }
 // }
 
 // export const createProduct = (product) => async dispatch => {
