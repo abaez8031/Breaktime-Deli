@@ -3,10 +3,12 @@ import { thunk } from "redux-thunk";
 import session from "./session";
 import suggestions from "./suggestions"
 import errors from "./errors";
+import reviews from "./reviews"
 
 const rootReducer = combineReducers({
   session,
   suggestions,
+  reviews,
   errors
 })
 

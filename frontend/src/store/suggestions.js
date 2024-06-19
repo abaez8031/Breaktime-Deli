@@ -11,6 +11,10 @@ const receiveSuggestionErrors = errors => ({
   errors
 });
 
+const clearSuggestionErrors = () => ({
+  type: CLEAR_SUGGESTION_ERRORS
+})
+
 const receiveSuggestions = suggestions => ({
   type: RECEIVE_SUGGESTIONS,
   suggestions
@@ -98,10 +102,11 @@ const suggestionsReducer = (initialState = {}, action) => {
       delete newState[action.id];
       return newState;
     default:
+      return initialState;
   }
 }
 
-export const suggestionsErrorsReducer = (state = null, action) => {
+export const suggestionsErrorsReducer = (initialState = null, action) => {
   switch (action.type) {
     case RECEIVE_SUGGESTION_ERRORS:
       return action.errors;
@@ -109,7 +114,7 @@ export const suggestionsErrorsReducer = (state = null, action) => {
     case CLEAR_SUGGESTION_ERRORS:
       return null
     default:
-      return state;
+      return initialState;
   }
 }
 
