@@ -1,3 +1,4 @@
+require("dotenv").config()
 const mongoose = require("mongoose");
 const { mongoURI: db } = require("../config/keys");
 const User = require("../models/User");
@@ -8,7 +9,7 @@ const bcrypt = require('bcryptjs');
 
 // Connect to database
 mongoose
-  .connect(db, { useNewUrlParser: true })
+  .connect(db)
   .then(() => {
     console.log('Connected to MongoDB successfully');
     insertSeeds();
@@ -20,7 +21,7 @@ mongoose
 
   const insertSeeds = async () => {
     try {
-      console.log("Resetting db and seeding users and tweets...");
+      console.log("Resetting db and seeding...");
       await User.collection.drop();
       await Review.collection.drop();
       await Suggestion.collection.drop();
