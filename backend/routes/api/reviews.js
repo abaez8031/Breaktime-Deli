@@ -1,6 +1,7 @@
 const express = require("express");
 const Review = require("../../models/Review");
 const router = express.Router();
+const ValidateReviewInput = require("../../validations/Review");
 
 router.get('/', async (req,res, next) => {
   try {
@@ -11,7 +12,7 @@ router.get('/', async (req,res, next) => {
   }
 })
 
-router.post('/', async(req,res,next) => {
+router.post('/', ValidateReviewInput, async(req,res,next) => {
   const { rating, text } = req.body;
   const review = new Review({
     userId: req.user._id,
@@ -36,7 +37,7 @@ router.delete("/:id", async (req,res,next) => {
   }
 })
 
-router.patch('/:id', async (req,res,next) => {
+router.patch('/:id', ValidateReviewInput, async (req,res,next) => {
   const { id } = req.params;
   const { rating, text } = req.body;
   try {

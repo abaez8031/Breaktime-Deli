@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Suggestion = require("../../models/Suggestion")
+const validateSuggestionInput = require("../../validations/Suggestion");
 
 router.get("/", async (req,res,next) => {
   try {
@@ -11,7 +12,7 @@ router.get("/", async (req,res,next) => {
   }
 })
 
-router.post("/", async (req,res,next) => {
+router.post("/", validateSuggestionInput, async (req,res,next) => {
   const { text } = req.body;
   const suggestion = new Suggestion({
     userId: req.user._id,

@@ -3,10 +3,10 @@ const handleValidationErrors = require('./handleValidationErrors');
 
 const validateLoginInput = [
   check('username')
-    .exists({ checkFalsy: true })
+    .exists({ values: 'falsy' })
     .withMessage("Please enter a username"),
   check('password')
-    .exists({ checkFalsy: true })
+    .exists({ values: 'falsy' })
     .withMessage('Please enter a password'),
   handleValidationErrors
 ];

@@ -3,11 +3,11 @@ const handleValidationErrors = require('./handleValidationErrors');
 
 const validateProductInput = [
   check('name')
-    .exists({ checkFalsy: true })
+    .exists({ values: 'falsy' })
     .isLength({ min: 2, max: 30 })
     .withMessage('Please enter a valid product name'),
   check('price')
-    .exists({ checkFalsy: true })
+    .exists({ values: 'falsy' })
     .isFloat({ gt: 0 })
     .withMessage('Please enter a valid price'),
   handleValidationErrors
