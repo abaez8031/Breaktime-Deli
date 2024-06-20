@@ -26,7 +26,7 @@ const receiveProductErrors = errors => ({
   errors
 })
 
-const clearProductErrors = errors => ({
+export const clearProductErrors = errors => ({
   type: CLEAR_PRODUCT_ERRORS,
   errors
 })

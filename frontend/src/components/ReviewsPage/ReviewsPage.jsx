@@ -5,6 +5,7 @@ import { fetchAllReviews } from "../../store/reviews";
 const ReviewsPage = () => {
   const dispatch = useDispatch();
   const reviews = useSelector(state => state.reviews);
+  console.log(reviews)
 
   useEffect(() => {
     dispatch(fetchAllReviews())

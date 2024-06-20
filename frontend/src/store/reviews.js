@@ -27,7 +27,7 @@ const receiveReviewErrors = errors => ({
   errors
 })
 
-const clearReviewErrors = () => ({
+export const clearReviewErrors = () => ({
   type: CLEAR_REVIEW_ERRORS
 })
 
