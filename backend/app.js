@@ -22,8 +22,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(passport.initialize());
-if (!isProduction) app.use(cors());
+if (!isProduction) {
+  // enable CORS only in development because React will be on the React development server (http://localhost:3000). In production, React files will be served statically on the Express server
+  app.use(cors());
+}
+
 app.use(
+  // Set the _csrf token and create req.csrfToken method to generate a hashed CSRF token
   csurf({
     cookie: {
       secure: isProduction,

@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken")
 const { secretOrKey } = require("./keys")
 const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt")
 
+// LocalStrategy is a Passport extension that will allow your application to use username/password combination as an authentication method for log in
 passport.use(new LocalStrategy({
   session: false,
   usernameField: 'username',
@@ -25,6 +26,8 @@ passport.use(new LocalStrategy({
     done(null, false);
 }));
 
+
+// loginUser is an Express middleware that will log in a user by generating a JWT token for that user - the JWT token should be sent to the frontend and stored on the frontend - the JWT token should be sent to the server in a request as an Authorization Bearer header to authenticate the user again
 exports.loginUser = async(user) => {
   // create an object with non-sensitive user information to send back
   const userInfo = {
@@ -61,8 +64,10 @@ passport.use(new JwtStrategy(options, async (jwtPayload, done) => {
   }
 }));
 
+// requireUser is an Express middleware that will not allow a route handler to perform its action unless there is a current user logged in (will attach current user as req.user, or return an error response if there is no current user)
 exports.requireUser = passport.authenticate('jwt', { session: false });
 
+// restoreUser is an Express middleware that will load the current user on req.user, but will NOT return an error response if there is no current user
 exports.restoreUser = (req, res, next) => {
   return passport.authenticate('jwt', { session: false }, function(err, user) {
     if (err) return next(err);
