@@ -36,3 +36,19 @@ export const formatTime = inputTime => {
   
   return `${month}/${day}/${year} at ${formattedHour}:${minutes}:${seconds}${timeOfDay}`;
 }
+
+export const calcReviewAvg = (reviews) => {
+  let total = 0;
+  reviews.forEach(review => {
+    total += review.rating
+  })
+  return total / reviews.length
+}
+
+export const calculateReviewsDistribution = (reviews) => {
+  const distribution = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
+  reviews.forEach(review => {
+    distribution[review.rating] += 1
+  })
+  return distribution;
+}
