@@ -7,6 +7,8 @@ import CreateSuggestionsForm from "../CreateSuggestionsForm.jsx/CreateSuggestion
 import "./SuggestionsPage.css"
 
 const SuggestionsPage = () => {
+  // make suggestions list own component
+  // suggestions list and heading is not resize responsive
   const dispatch = useDispatch();
   const suggestions = useSelector(state => Object.values(state.suggestions));
   const currentUser = useSelector(state => state.session.user)
