@@ -29,10 +29,10 @@ const CreateSuggestionsForm = () => {
 
   return (
     <>
-    <div className="create-suggestion-form-container">
-      <form className="create-suggestion-form" onSubmit={handleSubmit}>
+    <div className="suggestion-form-container">
+      <form className="suggestion-form" onSubmit={handleSubmit}>
         <div className="suggestions-text-area-container">
-        <textarea className="create-suggestion-form-text" value={text} onChange={handleTextChange} placeholder="Enter your suggestion"/>
+        <textarea className="suggestion-form-text" value={text} onChange={handleTextChange} placeholder="Enter your suggestion"/>
         <div className="errors">{errors?.text}</div>
         </div>
         <button className="suggestion-form-submit"type="submit">Create Suggestion</button>

@@ -1,5 +1,5 @@
 /* CreateSuggestionsForm CSS */
-.create-suggestion-form-container {
+.suggestion-form-container {
   display: flex;
   margin-bottom: 10px;
   width: 50%;
@@ -8,13 +8,13 @@
   justify-content: center;
 }
 
-.create-suggestion-form {
+.suggestion-form {
   display: flex;
   border: 2px shadow black;
   width: 100%;
 }
 
-.create-suggestion-form-text {
+.suggestion-form-text {
   height: 50px;
   width: 500px;
   margin-right: 20px;

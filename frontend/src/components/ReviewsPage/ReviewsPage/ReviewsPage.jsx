@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllReviews } from "../../../store/reviews";
 import ReviewsSummary from "../ReviewsSummary.jsx/ReviewsSummary";
+import CreateReviewForm from "../CreateReviewForm/CreateReviewForm";
 
 const ReviewsPage = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const ReviewsPage = () => {
 
   return (
     <>
+      <CreateReviewForm/>
       <ReviewsSummary reviews={reviews}/>
     </>
   );
