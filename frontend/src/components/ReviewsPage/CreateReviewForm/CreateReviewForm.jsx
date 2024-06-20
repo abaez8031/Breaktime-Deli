@@ -11,6 +11,7 @@ const CreateReviewForm = () => {
 
   return (
     // style button
+    // add logic to dispatch createReview when button is clicked
     <>
     <div className="create-review-header-container">
     <h2 className="create-review-header">Give us your honest opinion!</h2>
