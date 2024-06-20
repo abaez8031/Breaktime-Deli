@@ -1,5 +1,5 @@
 import LoginForm from "./components/SessionForms/LoginForm/LoginForm";
-import SignupForm from "./components/SessionForms/LoginForm/SignupForm/SignupForm";
+import SignupForm from "./components/SessionForms//SignupForm/SignupForm";
 import NavBar from "./components/NavBar/NavBar";
 import { Route, Switch } from "react-router-dom";
 import "./reset.css";
