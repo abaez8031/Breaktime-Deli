@@ -11,7 +11,7 @@ const receiveSuggestionErrors = errors => ({
   errors
 });
 
-const clearSuggestionErrors = () => ({
+export const clearSuggestionErrors = () => ({
   type: CLEAR_SUGGESTION_ERRORS
 })
 

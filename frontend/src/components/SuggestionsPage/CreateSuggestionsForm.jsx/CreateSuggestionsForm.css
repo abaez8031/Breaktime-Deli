@@ -1,1 +1,46 @@
 /* CreateSuggestionsForm CSS */
+.create-suggestion-form-container {
+  display: flex;
+  margin-bottom: 10px;
+  width: 50%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.create-suggestion-form {
+  display: flex;
+  border: 2px shadow black;
+  width: 100%;
+}
+
+.create-suggestion-form-text {
+  height: 50px;
+  width: 500px;
+  margin-right: 20px;
+  resize: none;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.suggestion-form-submit {
+  align-content: center;
+  margin: auto;
+  height: 50px;
+  border-radius: 500px;
+  background-color: #bde0fe;
+  text-align: center;
+}
+
+.errors {
+  color: red;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.suggestion-text-area-container {
+  display: flex;
+  flex-direction: column;
+}

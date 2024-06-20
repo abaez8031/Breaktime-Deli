@@ -12,9 +12,21 @@ const LoginForm = () => {
   const currentUser = useSelector(state => state.session.user)
   const dispatch = useDispatch();
 
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+    dispatch(clearSessionErrors())
+  }
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    dispatch(clearSessionErrors())
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login({ username, password}))
+    setUsername("");
+    setPassword("");
   }
 
   useEffect(() => {
@@ -30,10 +42,10 @@ const LoginForm = () => {
       <h2 className="login-form-header">Login</h2>
       <p>Don't have an account? <Link to="/register">Sign Up</Link></p>
       <form className="login-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}>
+        <input type="text" placeholder="Username" value={username} onChange={handleUsernameChange}>
         </input>
         <div className="errors">{errors?.username}</div>
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}>
+        <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange}>
         </input>
         <div className="errors">{errors?.password}</div>
         <button className="login-btn">Login</button>
