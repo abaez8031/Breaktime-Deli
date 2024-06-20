@@ -1,20 +1,47 @@
 import "./ReviewsSummary.css"
 import { calcReviewAvg, calculateReviewsDistribution } from "../../../utils/utils";
+import starImg from "../../../assets/icons8-star-48.png"
 
 const ReviewsSummary = ({reviews}) => {
 
-const distribution = calculateReviewsDistribution(reviews)
+const {5: noOfFives, 4: noOfFours, 3: noOfThrees, 2: noOfTwos, 1: noOfOnes} = calculateReviewsDistribution(reviews)
 const overallAvg = calcReviewAvg(reviews)
+const totalReviews = reviews.length
 
   return (
-    <div className="reviews-summary-container">
+    <div className="summary-container">
       <p>Overall Rating: {overallAvg}</p>
-      <p>5: {distribution[5]}</p>
-      <p>4: {distribution[4]}</p>
-      <p>3: {distribution[3]}</p>
-      <p>2: {distribution[2]}</p>
-      <p>1: {distribution[1]}</p>
-      <p>{reviews.length} reviews</p>
+      <div className="summary-rating-container">
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <p>{noOfFives} reviews</p>
+      </div>
+      <div className="summary-rating-container">
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <p>{noOfFours} reviews</p>
+      </div>
+      <div className="summary-rating-container">
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <p>{noOfThrees} reviews</p>
+      </div>
+      <div className="summary-rating-container">
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <p>{noOfTwos} reviews</p>
+      </div>
+      <div className="summary-rating-container">
+        <img className="star-img"src={starImg} alt="starImg"/>
+        <p>{noOfOnes} reviews</p>
+      </div>
+      <p>{totalReviews} reviews</p>
     </div>
   )
 }

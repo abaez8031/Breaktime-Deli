@@ -13,7 +13,6 @@ const ReviewsPage = () => {
 
   return (
     <>
-      <h1>Reviews Page</h1>
       <ReviewsSummary reviews={reviews}/>
     </>
   );

@@ -1,3 +1,31 @@
-.reviews-summary-container {
-  
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.summary-rating-container {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.star-img {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.summary-rating-container p {
+  /* margin-left: 1000px; */
+  align-self: center;
+}
+
+.summary-container p {
+  font-size: 1em;
+  margin: 5px 0;
 }
