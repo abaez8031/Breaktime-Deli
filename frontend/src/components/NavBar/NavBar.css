@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   background-image: linear-gradient(to right, #cdb4db, #a2d2ff);
+  margin-bottom: 30px;
 }
 
 .nav-bar li {

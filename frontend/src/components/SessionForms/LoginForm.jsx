@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearSessionErrors, login } from "../../store/session";
 import { Link } from "react-router-dom"
 import "./LoginForm.css"
+import { Redirect } from "react-router-dom";
 
 const LoginForm = () => {
   const [username,setUsername] = useState("");
   const [password, setPassword] = useState("");
   const errors = useSelector(state => state.errors.session);
+  const currentUser = useSelector(state => state.session.user)
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -23,6 +25,7 @@ const LoginForm = () => {
 
   return (
     <>
+    {currentUser && <Redirect to="/"/>}
     <div className="login-form-container">
       <h2 className="login-form-header">Login</h2>
       <p>Don't have an account? <Link to="/register">Sign Up</Link></p>

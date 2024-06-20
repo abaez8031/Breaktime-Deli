@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { getCurrentUser } from "./store/session";
 import ReviewsPage from "./components/ReviewsPage/ReviewsPage";
 import SuggestionsPage from "./components/SuggestionsPage/SuggestionsPage/SuggestionsPage";
+import Homepage from "./components/Homepage/Homepage";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -21,6 +22,9 @@ const App = () => {
     <>
     <NavBar/>
     <Switch>
+      <Route exact path="/">
+        <Homepage/>
+      </Route>
       <Route exact path="/login">
         <LoginForm/>
       </Route>

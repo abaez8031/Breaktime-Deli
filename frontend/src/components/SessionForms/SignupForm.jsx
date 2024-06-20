@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { signup, clearSessionErrors } from '../../store/session';
-import {Link} from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import "./SignupForm.css"
+
 const SignupForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const currentUser = useSelector(state => state.session.user)
   const errors = useSelector(state => state.errors.session)
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +23,7 @@ const SignupForm = () => {
 
   return (
     <>
+    {currentUser && <Redirect to="/"/>}
     <div className="register-form-container">
       <h2 className="register-form-header">Register</h2>
       <p>Already have an account? <Link to="/login">Login</Link></p>

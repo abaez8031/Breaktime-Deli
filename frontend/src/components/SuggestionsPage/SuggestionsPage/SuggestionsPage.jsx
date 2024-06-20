@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllSuggestions } from "../../../store/suggestions";
 import SuggestionPageItem from "../SuggestionsPageItem/SuggestionPageItem";
 import ReactPaginate from "react-paginate";
+import CreateSuggestionsForm from "../CreateSuggestionsForm.jsx/CreateSuggestionsForm";
 import "./SuggestionsPage.css"
 
 const SuggestionsPage = () => {
   const dispatch = useDispatch();
   const suggestions = useSelector(state => Object.values(state.suggestions));
+  const currentUser = useSelector(state => state.session.user)
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPerPage = 5;
 
@@ -26,6 +28,7 @@ const SuggestionsPage = () => {
   return (<>
   <div className="suggestions-page-container">
     <h1 className="suggestions-page-heading">Tell us what we can do better!</h1>
+    {currentUser && <CreateSuggestionsForm/>}
     <div className="suggestions-container">
       {suggestions && (
         <ul className="suggestions-list">

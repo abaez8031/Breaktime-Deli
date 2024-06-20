@@ -59,7 +59,7 @@ const sessionReducer = (initialState = {user: null}, action) => {
     case RECEIVE_USER:
       return {...initialState, user: action.user}
     case REMOVE_USER:
-      return initialState;
+      return {user: null}
     default:
       return initialState;
   }
