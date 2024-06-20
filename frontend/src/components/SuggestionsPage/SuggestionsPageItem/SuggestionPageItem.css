@@ -10,13 +10,15 @@
 }
 
 .suggestions-item-username {
-  padding: 5px;
+  padding: 10px;
+  color: blue;
 }
 
 .suggestions-item-text {
-  padding: 5px;
+  padding: 10px;
 }
 
 .suggestions-created-at {
-  padding: 5px;
+  padding: 10px;
+  color: slategray
 }

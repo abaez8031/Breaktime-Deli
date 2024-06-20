@@ -40,15 +40,15 @@
 }
 
 .pagination a {
-  border: 1px solid #ddd;
+  border: 1px solid purple;
   padding: 8px 12px;
   cursor: pointer;
-  color: #333;
+  color: purple;
   text-decoration: none;
 }
 
 .pagination .active a {
-  background-color: #333;
+  background-color: #A8A8A8;
   color: #fff;
   border-color: #333;
 }
