@@ -1,6 +1,7 @@
 import { createSuggestion } from "../../../store/suggestions";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import "./CreateSuggestionsForm.css"
 
 const CreateSuggestionsForm = () => {
   const dispatch = useDispatch();

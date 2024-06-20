@@ -13,13 +13,14 @@ router.get("/", async (req,res,next) => {
 })
 
 router.post("/", validateSuggestionInput, async (req,res,next) => {
-  const { text } = req.body;
+  const { userId, text } = req.body;
   const suggestion = new Suggestion({
-    userId: req.user._id,
+    userId,
     text
   })
   try {
     const savedSuggestion = await suggestion.save();
+    await savedSuggestion.populate("userId", "username")
     res.status(201).json(savedSuggestion)
   } catch(err) {
     next(err)
