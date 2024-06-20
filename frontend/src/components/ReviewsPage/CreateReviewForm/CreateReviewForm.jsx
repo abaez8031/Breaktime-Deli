@@ -32,7 +32,7 @@ const CreateReviewForm = () => {
       <textarea value={text} onChange={(e) => {
         setText(e.target.value)
       }}className="review-form-text"/>
-      <button type="submit">Create Review</button>
+      <button className="submit-review-btn" type="submit">Create Review</button>
       </form>
     </div>
     </>
