@@ -9,9 +9,9 @@ import "./SuggestionsList.css"
 const SuggestionsList = () => {
   const dispatch = useDispatch();
   const suggestions = useSelector(state => Object.values(state.suggestions));
+  // React Pagination
   const [currentPage, setCurrentPage] = useState(0)
   const itemsPerPage = 5;
-
   const offset = currentPage * itemsPerPage;
   const currentItems = suggestions.slice(offset, offset + itemsPerPage);
   const pageCount = Math.ceil(suggestions.length / itemsPerPage);

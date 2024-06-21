@@ -1,0 +1,9 @@
+.reviews-list-container {
+  background-color: black;
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  background-image:linear-gradient( 
+                to bottom, #ffc8dd, #cdb4db);
+  padding: 20px;
+}
