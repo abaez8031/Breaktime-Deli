@@ -1,12 +1,12 @@
-.suggestions-page-item-container {
+.suggestions-list-item-container {
   border-top: 2px solid gray;
   padding: 10px 0;
   border-radius: 5px;
-  margin: 10px 10px;
+  margin: 10px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: flex-start;
 }
 
 .suggestions-item-username {

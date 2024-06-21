@@ -1,10 +1,10 @@
-import "./SuggestionPageItem.css"
+import "./SuggestionsListItem.css"
 import { formatTime } from "../../../utils/utils";
 
-const SuggestionPageItem = ({suggestion}) => {
+const SuggestionsListItem = ({suggestion}) => {
   return (
     <>
-      <div className="suggestions-page-item-container">
+      <div className="suggestions-list-item-container">
         <li className="suggestions-item-username">{suggestion.userId.username} says:</li>
         <li className="suggestions-item-text">{suggestion.text}</li>
         <li className="suggestions-created-at">{formatTime(suggestion.createdAt)}</li>
@@ -13,4 +13,4 @@ const SuggestionPageItem = ({suggestion}) => {
   )
 }
 
-export default SuggestionPageItem;
+export default SuggestionsListItem;
