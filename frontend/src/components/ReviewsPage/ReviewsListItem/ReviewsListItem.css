@@ -9,3 +9,16 @@
   align-items: flex-start;
 }
 
+.reviews-item-username {
+  padding: 10px;
+  color: blue;
+}
+
+.reviews-item-text {
+  padding: 10px;
+}
+
+.reviews-item-created {
+  padding: 10px;
+  color: slategray
+}
