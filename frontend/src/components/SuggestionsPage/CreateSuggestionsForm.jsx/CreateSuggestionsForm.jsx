@@ -26,7 +26,7 @@ const CreateSuggestionsForm = () => {
       dispatch(clearSuggestionErrors());
     };
   }, [dispatch]);
-
+  // when errors are rendered the button is not centered
   return (
     <>
     <div className="suggestion-form-container">
@@ -40,7 +40,6 @@ const CreateSuggestionsForm = () => {
     </div>
     </>
   )
-  // error handling & rendering
 }
 
 export default CreateSuggestionsForm;

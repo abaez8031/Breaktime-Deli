@@ -7,7 +7,9 @@ import ReviewsList from "../ReviewsList/ReviewsList";
 
 const ReviewsPage = () => {
   const dispatch = useDispatch();
-  const reviews = useSelector((state) => Object.values(state.reviews));
+  const reviews = useSelector(state => Object.values(state.reviews));
+  const userId = useSelector(state => state.session.user?._id);
+  const hasReview = reviews.some(review => review.userId._id === userId)
 
   useEffect(() => {
     dispatch(fetchAllReviews());
@@ -15,7 +17,7 @@ const ReviewsPage = () => {
 
   return (
     <>
-      <CreateReviewForm/>
+      {userId && !hasReview && (<CreateReviewForm/>)}
       <ReviewsSummary reviews={reviews}/>
       <ReviewsList/>
     </>

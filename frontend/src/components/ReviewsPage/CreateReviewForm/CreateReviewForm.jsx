@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./CreateReviewForm.css"
 import { useDispatch, useSelector } from "react-redux";
-import { createReview } from "../../../store/reviews";
+import { clearReviewErrors, createReview } from "../../../store/reviews";
+import { clearSuggestionErrors } from "../../../store/suggestions";
 
 const CreateReviewForm = () => {
   const [text, setText] = useState("");
@@ -13,16 +14,24 @@ const CreateReviewForm = () => {
 
   const handleStarClick = (rating) => {
     setRating(rating)
+    dispatch(clearReviewErrors())
   }
 
   const handleTextChange = (e) => {
       setText(e.target.value)
+      dispatch(clearReviewErrors())
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createReview({userId, text, rating}))
   }
+
+  useEffect(() => {
+    return () => {
+      dispatch(clearReviewErrors())
+    }
+  }, [dispatch])
 
   return (
     // add logic to dispatch createReview when button is clicked
