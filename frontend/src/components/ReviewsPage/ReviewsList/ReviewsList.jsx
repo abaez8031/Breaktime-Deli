@@ -10,7 +10,7 @@ const ReviewsList = () => {
   const reviews = useSelector(state => Object.values(state.reviews));
   // React Pagination
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 5;
+  const itemsPerPage = 1;
   const offset = currentPage * itemsPerPage;
   const currentItems = reviews.slice(offset, offset + itemsPerPage);
   const pageCount = Math.ceil(reviews.length / itemsPerPage);

@@ -5,7 +5,7 @@ const ValidateReviewInput = require("../../validations/Review");
 
 router.get('/', async (req,res, next) => {
   try {
-    const reviews = await Review.find({});
+    const reviews = await Review.find({}).populate("userId", "username");
     res.json(reviews)
   } catch(err) {
     next(err)
