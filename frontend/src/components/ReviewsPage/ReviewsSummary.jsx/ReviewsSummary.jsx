@@ -41,7 +41,9 @@ const totalReviews = reviews.length
         <img className="star-img"src={starImg} alt="starImg"/>
         <p>{noOfOnes} reviews</p>
       </div>
-      <p>{totalReviews} reviews</p>
+      <div className="summary-footer">
+        <p>{totalReviews} total reviews</p>
+      </div>
     </div>
   )
 }

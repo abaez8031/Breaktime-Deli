@@ -21,11 +21,14 @@
 }
 
 .summary-rating-container p {
-  align-self: center;
 }
 
 .summary-container p {
   font-size: 1em;
   margin: 5px 0;
-  color: #005f73
+  color: #005f73;
+}
+
+.summary-footer {
+  margin-left: auto;
 }
