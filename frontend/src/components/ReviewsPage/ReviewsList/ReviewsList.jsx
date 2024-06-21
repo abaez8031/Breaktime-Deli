@@ -1,13 +1,9 @@
 import "./ReviewsList.css"
-import { useSelector,useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import { fetchAllReviews } from "../../../store/reviews";
+import { useState } from "react";
 import ReviewsListItem from "../ReviewsListItem/ReviewsListItem";
 import ReactPaginate from "react-paginate";
 
-const ReviewsList = () => {
-  const dispatch = useDispatch();
-  const reviews = useSelector(state => Object.values(state.reviews));
+const ReviewsList = ({reviews}) => {
   // React Pagination
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 1;
@@ -18,10 +14,6 @@ const ReviewsList = () => {
   const handlePageClick = (e) => {
     setCurrentPage(e.selected);
   };
-
-  useEffect(() => {
-    dispatch(fetchAllReviews())
-  }, [dispatch])
 
   return (
     <div className="reviews-list-container">

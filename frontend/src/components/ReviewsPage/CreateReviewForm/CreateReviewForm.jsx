@@ -2,12 +2,10 @@ import { useState, useEffect } from "react";
 import "./CreateReviewForm.css"
 import { useDispatch, useSelector } from "react-redux";
 import { clearReviewErrors, createReview } from "../../../store/reviews";
-import { clearSuggestionErrors } from "../../../store/suggestions";
 
-const CreateReviewForm = () => {
+const CreateReviewForm = ({userId}) => {
   const [text, setText] = useState("");
   const [rating, setRating] = useState(0);
-  const userId = useSelector(state => state.session.user)
   const errors = useSelector(state => state.errors.reviews)
   const dispatch = useDispatch();
 

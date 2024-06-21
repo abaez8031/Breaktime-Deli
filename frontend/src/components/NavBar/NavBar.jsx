@@ -6,7 +6,6 @@ import { logout } from "../../store/session";
 const NavBar = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.session.user)
-  console.log(currentUser)
   return (
     <ul className="nav-bar">
       {!currentUser &&
