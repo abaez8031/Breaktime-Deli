@@ -5,13 +5,14 @@ const reviewSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User",
-    required: true
+    required: true,
+    unique: true
   },
   rating: {
     type: Number,
     required: true,
     min: 1,
-    max: 10
+    max: 5
   },
   text: {
     type: String,
@@ -21,5 +22,7 @@ const reviewSchema = new Schema({
 }, {
   timestamps: true
 })
+
+reviewSchema.index({ userId: 1 }, { unique: true });
 
 module.exports = mongoose.model("Review", reviewSchema);

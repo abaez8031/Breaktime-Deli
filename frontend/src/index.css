@@ -3,3 +3,12 @@
 body {
   background-color: #caf0f8;
 }
+
+.errors {
+  color: red;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}

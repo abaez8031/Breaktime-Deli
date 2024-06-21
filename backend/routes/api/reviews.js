@@ -13,9 +13,9 @@ router.get('/', async (req,res, next) => {
 })
 
 router.post('/', ValidateReviewInput, async(req,res,next) => {
-  const { rating, text } = req.body;
+  const { userId, rating, text } = req.body;
   const review = new Review({
-    userId: req.user._id,
+    userId,
     rating,
     text
   })

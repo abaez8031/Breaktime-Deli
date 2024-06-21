@@ -32,14 +32,6 @@
   text-align: center;
 }
 
-.errors {
-  color: red;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .suggestion-text-area-container {
   display: flex;
   flex-direction: column;
