@@ -12,13 +12,23 @@
 .reviews-item-username {
   padding: 10px;
   color: blue;
+  width: 100%;
 }
 
 .reviews-item-text {
   padding: 10px;
+  width: 100%;
 }
 
 .reviews-item-created {
   padding: 10px;
-  color: slategray
+  color: slategray;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-review-btn {
+  background-color: transparent;
+  border-radius: 10px;
 }

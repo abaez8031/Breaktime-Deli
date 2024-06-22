@@ -5,8 +5,8 @@ const ReviewsListItem = ({review}) => {
   return (
     <div className="reviews-list-item-container">
       <li className="reviews-item-username">{review.userId.username} says:</li>
-      <li className="reviews-item-text">"{review.text}"</li>
-      <li className="reviews-item-created">{formatTime(review.createdAt)}</li>
+      <li className="reviews-item-text"><p>"{review.text}"</p></li>
+      <li className="reviews-item-created"><p>{formatTime(review.createdAt)}</p><button className="delete-review-btn">Delete Review</button></li>
     </div>
   )
 }
