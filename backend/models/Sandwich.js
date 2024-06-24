@@ -21,6 +21,14 @@ const sandwichSchema = new Schema({
   condiments: {
     type: [String],
     required: true
+  },
+  hot: {
+    type: Boolean,
+    default: false
+  },
+  toasted: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true
