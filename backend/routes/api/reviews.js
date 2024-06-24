@@ -20,7 +20,8 @@ router.post('/', ValidateReviewInput, async(req,res,next) => {
     text
   })
   try {
-    const savedReview = await review.save();
+    const savedReview = await review.save()
+    const populatedReview = await savedReview.populate("userId", "username")
     res.status(201).json(savedReview)
   } catch (err) {
     res.status(400).json({message: err.message})

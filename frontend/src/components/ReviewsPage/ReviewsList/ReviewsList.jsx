@@ -3,7 +3,7 @@ import { useState } from "react";
 import ReviewsListItem from "../ReviewsListItem/ReviewsListItem";
 import ReactPaginate from "react-paginate";
 
-const ReviewsList = ({reviews}) => {
+const ReviewsList = ({reviews, userId}) => {
   // React Pagination
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 1;
@@ -19,7 +19,7 @@ const ReviewsList = ({reviews}) => {
     <div className="reviews-list-container">
       <ul>
         {reviews && currentItems.map(review => 
-          <ReviewsListItem review={review} />
+          <ReviewsListItem review={review} userId={userId}/>
         )}
       </ul>
 

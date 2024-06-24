@@ -31,4 +31,5 @@
 .delete-review-btn {
   background-color: transparent;
   border-radius: 10px;
+  cursor: pointer;
 }

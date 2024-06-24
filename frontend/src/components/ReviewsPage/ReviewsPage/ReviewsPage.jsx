@@ -17,9 +17,9 @@ const ReviewsPage = () => {
 
   return (
     <>
-      {userId && !hasReview && (<CreateReviewForm/>)}
+      {userId && !hasReview && (<CreateReviewForm userId={userId}/>)}
       <ReviewsSummary reviews={reviews}/>
-      <ReviewsList reviews={reviews}/>
+      <ReviewsList userId={userId} reviews={reviews}/>
     </>
   );
 };

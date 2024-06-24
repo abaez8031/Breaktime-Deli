@@ -5,7 +5,7 @@ import starImg from "../../../assets/icons8-star-48.png"
 const ReviewsSummary = ({reviews}) => {
 
 const {5: noOfFives, 4: noOfFours, 3: noOfThrees, 2: noOfTwos, 1: noOfOnes} = calculateReviewsDistribution(reviews)
-const overallAvg = calcReviewAvg(reviews)
+const overallAvg = calcReviewAvg(reviews).toFixed(1)
 const totalReviews = reviews.length
 
   return (

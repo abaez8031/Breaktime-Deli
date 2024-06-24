@@ -6,23 +6,34 @@ import { clearReviewErrors, createReview } from "../../../store/reviews";
 const CreateReviewForm = ({userId}) => {
   const [text, setText] = useState("");
   const [rating, setRating] = useState(0);
+  const [errorsCleared, setErrorsCleared] = useState(false);
   const errors = useSelector(state => state.errors.reviews)
   const dispatch = useDispatch();
 
+  const clearErrorsOnce = () => {
+    if (!errorsCleared) {
+      dispatch(clearReviewErrors());
+      setErrorsCleared(true);
+    }
+  };
 
   const handleStarClick = (rating) => {
     setRating(rating)
-    dispatch(clearReviewErrors())
+    clearErrorsOnce();
   }
 
   const handleTextChange = (e) => {
       setText(e.target.value)
-      dispatch(clearReviewErrors())
+      clearErrorsOnce();
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(createReview({userId, text, rating}))
+    setText("");
+    setRating(0);
+    clearErrorsOnce();
+    setErrorsCleared(false)
   }
 
   useEffect(() => {
@@ -32,7 +43,6 @@ const CreateReviewForm = ({userId}) => {
   }, [dispatch])
 
   return (
-    // add logic to dispatch createReview when button is clicked
     <>
     <div className="create-review-header-container">
     <h2 className="create-review-header">Give us your honest opinion!</h2>
