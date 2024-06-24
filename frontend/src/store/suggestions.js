@@ -94,7 +94,11 @@ export const deleteSuggestion = id => async dispatch => {
 const suggestionsReducer = (initialState = {}, action) => {
   switch(action.type) {
     case RECEIVE_SUGGESTIONS:
-      return {...initialState, ...action.suggestions}
+      const suggestions = {};
+      action.suggestions.forEach(suggestion => {
+        suggestions[suggestion._id] = suggestion
+      })
+      return {...initialState, ...suggestions}
     case RECEIVE_SUGGESTION:
       return {...initialState, [action.suggestion._id]: action.suggestion}
     case REMOVE_SUGGESTION:
