@@ -20,5 +20,14 @@
 
 .suggestions-item-created {
   padding: 10px;
-  color: slategray
+  color: slategray;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-suggestion-btn {
+  background-color: transparent;
+  border-radius: 10px;
+  cursor: pointer;
 }

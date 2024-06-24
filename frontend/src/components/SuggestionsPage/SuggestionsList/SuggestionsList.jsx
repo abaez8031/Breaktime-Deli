@@ -6,7 +6,7 @@ import { fetchAllSuggestions } from "../../../store/suggestions";
 import "./SuggestionsList.css"
 
 
-const SuggestionsList = () => {
+const SuggestionsList = ({userId}) => {
   const dispatch = useDispatch();
   const suggestions = useSelector(state => Object.values(state.suggestions));
   // React Pagination
@@ -30,7 +30,7 @@ const SuggestionsList = () => {
       {suggestions && (
         <ul className="suggestions-list">
           {currentItems.map(suggestion => 
-            <SuggestionsListItem suggestion={suggestion}/>
+            <SuggestionsListItem userId={userId} suggestion={suggestion}/>
           )}
         </ul>
       )}

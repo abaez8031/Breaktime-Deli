@@ -6,14 +6,14 @@ import "./SuggestionsPage.css"
 
 const SuggestionsPage = () => {
   // suggestions list and heading is not resize responsive
-  const currentUser = useSelector(state => state.session.user)
+  const currentUserId = useSelector(state => state.session.user?._id)
 
   return (
   <>
   <div className="suggestions-page-container">
     <h1 className="suggestions-page-heading">Tell us what we can do better!</h1>
-    {currentUser && <CreateSuggestionsForm/>}
-    <SuggestionsList/>
+    {currentUserId && <CreateSuggestionsForm/>}
+    <SuggestionsList userId={currentUserId}/>
   </div>
   </>
   )
