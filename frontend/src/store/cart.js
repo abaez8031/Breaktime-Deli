@@ -28,3 +28,5 @@ const cartReducer = (state = {sandwiches: []}, action) => {
       return state;
   }
 }
+
+export default cartReducer;
