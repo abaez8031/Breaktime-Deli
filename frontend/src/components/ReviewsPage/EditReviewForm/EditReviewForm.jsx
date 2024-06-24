@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearReviewErrors, updateReview } from "../../../store/reviews";
 
 const EditReviewForm = ({reviewBeingUpdated}) => {
+  // reviews are not being correctly updated?
   const [text, setText] = useState(reviewBeingUpdated.text);
   const [rating, setRating] = useState(reviewBeingUpdated.rating);
   const [errorsCleared, setErrorsCleared] = useState(false);

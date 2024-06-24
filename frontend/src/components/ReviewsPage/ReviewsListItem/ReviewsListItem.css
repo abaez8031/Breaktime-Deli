@@ -36,3 +36,19 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+.review-list-stars {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.review-list-star {
+  font-size: 2rem;
+  color: gray;
+}
+
+.gold {
+  color: gold;
+}

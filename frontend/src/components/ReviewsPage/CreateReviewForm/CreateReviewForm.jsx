@@ -54,7 +54,7 @@ const CreateReviewForm = ({userId}) => {
             {[1, 2, 3, 4, 5].map((star) => (
               <span
                 key={star}
-                className={`star ${star <= rating ? "gold" : ""}`}
+                className={`create-review-star ${star <= rating ? "gold" : ""}`}
                 onClick={() => handleStarClick(star)}
               >
                 &#9733;
