@@ -23,7 +23,7 @@ const ReviewsPage = () => {
       {userId && !hasReview && (<CreateReviewForm userId={userId}/>)}
       <ReviewsSummary reviews={reviews}/>
       {!isUpdatingReview && <ReviewsList setReviewBeingUpdated= {setReviewBeingUpdated} setIsUpdatingReview={setIsUpdatingReview} userId={userId} reviews={reviews}/>}
-      {isUpdatingReview && <EditReviewForm reviewBeingUpdated={reviewBeingUpdated}/>}
+      {isUpdatingReview && <EditReviewForm reviewBeingUpdated={reviewBeingUpdated} setIsUpdatingReview={setIsUpdatingReview}/>}
     </>
   );
 };

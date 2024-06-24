@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearReviewErrors, updateReview } from "../../../store/reviews";
+import "../CreateReviewForm/CreateReviewForm.css"
 
-const EditReviewForm = ({reviewBeingUpdated}) => {
+const EditReviewForm = ({setIsUpdatingReview, reviewBeingUpdated}) => {
   // reviews are not being correctly updated?
   const [text, setText] = useState(reviewBeingUpdated.text);
   const [rating, setRating] = useState(reviewBeingUpdated.rating);
@@ -27,12 +28,18 @@ const EditReviewForm = ({reviewBeingUpdated}) => {
       clearErrorsOnce();
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     dispatch(updateReview({
       ...reviewBeingUpdated,
       text,
       rating
     }))
+    setText("");
+    setRating(0);
+    clearErrorsOnce();
+    setErrorsCleared(false);
+    setIsUpdatingReview(false);
   }
 
   return (
@@ -44,7 +51,7 @@ const EditReviewForm = ({reviewBeingUpdated}) => {
             {[1, 2, 3, 4, 5].map((star) => (
               <span
                 key={star}
-                className={`star ${star <= rating ? "gold" : ""}`}
+                className={`create-review-star ${star <= rating ? "gold" : ""}`}
                 onClick={() => handleStarClick(star)}
               >
                 &#9733;

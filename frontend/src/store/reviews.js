@@ -40,7 +40,7 @@ export const updateReview = review => async dispatch => {
         "Content-Type": "application/json"
       }
     })
-    const data = res.json();
+    const data = await res.json();
     dispatch(receiveReview(data))
   } catch(err) {
     const res = await err.json();

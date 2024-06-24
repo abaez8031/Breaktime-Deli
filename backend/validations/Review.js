@@ -25,4 +25,15 @@ const ValidateReviewInput = [
   handleValidationErrors
 ]
 
-module.exports = ValidateReviewInput;
+const ValidateUpdateReviewInput = [
+  check("rating")
+  .exists({ values: 'falsy' }).withMessage("Please enter a rating")
+  .isFloat({min: 1, max: 5}).withMessage("Rating scale is 1-5"),
+  check("text")
+  .exists({values: 'falsy'}).withMessage("Please give a reason for your review"),
+  check("userId")
+  .exists({values: 'falsy'}).withMessage("You must be logged in to create a review"),
+  handleValidationErrors
+]
+
+module.exports = {ValidateUpdateReviewInput, ValidateReviewInput}
