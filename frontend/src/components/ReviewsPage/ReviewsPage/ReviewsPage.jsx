@@ -12,6 +12,7 @@ const ReviewsPage = () => {
   const userId = useSelector(state => state.session.user?._id);
   const hasReview = reviews.some(review => review.userId._id === userId);
   const [isUpdatingReview, setIsUpdatingReview] = useState(false);
+  const [reviewBeingUpdated, setReviewBeingUpdated] = useState({});
 
   useEffect(() => {
     dispatch(fetchAllReviews());
@@ -21,8 +22,8 @@ const ReviewsPage = () => {
     <>
       {userId && !hasReview && (<CreateReviewForm userId={userId}/>)}
       <ReviewsSummary reviews={reviews}/>
-      {!isUpdatingReview && <ReviewsList setIsUpdatingReview={setIsUpdatingReview} userId={userId} reviews={reviews}/>}
-      {isUpdatingReview && <EditReviewForm/>}
+      {!isUpdatingReview && <ReviewsList setReviewBeingUpdated= {setReviewBeingUpdated} setIsUpdatingReview={setIsUpdatingReview} userId={userId} reviews={reviews}/>}
+      {isUpdatingReview && <EditReviewForm reviewBeingUpdated={reviewBeingUpdated}/>}
     </>
   );
 };

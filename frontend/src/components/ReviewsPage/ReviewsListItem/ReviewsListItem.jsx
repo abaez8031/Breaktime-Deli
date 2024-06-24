@@ -3,13 +3,14 @@ import { formatTime } from "../../../utils/utils";
 import { useDispatch } from "react-redux";
 import { deleteReview } from "../../../store/reviews";
 
-const ReviewsListItem = ({userId, review, setIsUpdatingReview}) => {
+const ReviewsListItem = ({userId, review, setIsUpdatingReview, setReviewBeingUpdated}) => {
   const dispatch = useDispatch();
   const handleDeleteBtnClick = () => {
     dispatch(deleteReview(review._id))
   }
   const handleUpdateBtnClick = () => {
-    setIsUpdatingReview(true)
+    setIsUpdatingReview(true);
+    setReviewBeingUpdated(review)
   }
   return (
     <div className="reviews-list-item-container">
