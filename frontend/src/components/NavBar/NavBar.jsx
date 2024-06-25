@@ -12,7 +12,7 @@ const NavBar = () => {
       (<><li><Link to="/register">Register</Link></li>
       <li><Link to="/login">Login</Link></li></>)
       }
-      <li>Products</li>
+      <li><Link to="/products">Products</Link></li>
       <li><Link to="/suggestions">Suggestions</Link></li>
       <li><Link to="/reviews">Reviews</Link></li>
       {currentUser && <li><p onClick={() => {

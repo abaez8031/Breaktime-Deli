@@ -9,6 +9,8 @@ import { getCurrentUser } from "./store/session";
 import ReviewsPage from "./components/ReviewsPage/ReviewsPage/ReviewsPage";
 import SuggestionsPage from "./components/SuggestionsPage/SuggestionsPage/SuggestionsPage";
 import Homepage from "./components/Homepage/Homepage";
+import SandwichBuilder from "./components/ProductsPage/ColdCutSandwichBuilder/ColdCutSandwichBuilder"
+import ColdCutSandwichBuilder from "./components/ProductsPage/ColdCutSandwichBuilder/ColdCutSandwichBuilder";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +39,9 @@ const App = () => {
           </Route>
           <Route exact path="/suggestions">
             <SuggestionsPage />
+          </Route>
+          <Route exact path="/products">
+            <ColdCutSandwichBuilder/>
           </Route>
         </Switch>
       </>

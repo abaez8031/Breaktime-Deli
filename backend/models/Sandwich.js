@@ -29,6 +29,10 @@ const sandwichSchema = new Schema({
   toasted: {
     type: Boolean,
     default: false
+  },
+  price: {
+    type: Number,
+    required: true
   }
 }, {
   timestamps: true
