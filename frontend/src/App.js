@@ -9,8 +9,7 @@ import { getCurrentUser } from "./store/session";
 import ReviewsPage from "./components/ReviewsPage/ReviewsPage/ReviewsPage";
 import SuggestionsPage from "./components/SuggestionsPage/SuggestionsPage/SuggestionsPage";
 import Homepage from "./components/Homepage/Homepage";
-import SandwichBuilder from "./components/ProductsPage/ColdCutSandwichBuilder/ColdCutSandwichBuilder"
-import ColdCutSandwichBuilder from "./components/ProductsPage/ColdCutSandwichBuilder/ColdCutSandwichBuilder";
+import ProductsPage from "./components/ProductsPage/ProductsPage/ProductsPage";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -41,7 +40,7 @@ const App = () => {
             <SuggestionsPage />
           </Route>
           <Route exact path="/products">
-            <ColdCutSandwichBuilder/>
+            <ProductsPage/>
           </Route>
         </Switch>
       </>
