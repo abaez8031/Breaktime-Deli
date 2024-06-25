@@ -105,7 +105,7 @@ const ColdCutSandwichBuilder = () => {
       <form className="sandwich-builder-form">
 
         <div className="ingredient-selector">
-          <label>Bread:</label>
+          <label className="category-label">Bread:</label>
           <div className="radio-buttons">
             {Object.keys(ingredientPrices.bread).map(bread => (
               <div key={bread} className="radio-button">
@@ -123,7 +123,7 @@ const ColdCutSandwichBuilder = () => {
         </div>
 
         <div className="ingredient-selector">
-          <label>Meat:</label>
+          <label className="category-label">Meat:</label>
           <div className="checkbox-buttons">
             {Object.keys(ingredientPrices.meat).map(meat => (
               <div key={meat} className="checkbox-button">
@@ -141,7 +141,7 @@ const ColdCutSandwichBuilder = () => {
         </div>
 
         <div className="ingredient-selector">
-          <label>Cheese:</label>
+          <label className="category-label">Cheese:</label>
           <div className="checkbox-buttons">
             {Object.keys(ingredientPrices.cheese).map(cheese => (
               <div key={cheese} className="checkbox-button">
@@ -159,7 +159,7 @@ const ColdCutSandwichBuilder = () => {
         </div>
 
         <div className="ingredient-selector">
-          <label>Veggies:</label>
+          <label className="category-label">Veggies:</label>
           <div className="checkbox-buttons">
             {Object.keys(ingredientPrices.veggies).map(veggie => (
               <div key={veggie} className="checkbox-button">
@@ -177,7 +177,7 @@ const ColdCutSandwichBuilder = () => {
         </div>
 
         <div className="ingredient-selector">
-          <label>Condiments:</label>
+          <label className="category-label">Condiments:</label>
           <div className="checkbox-buttons">
             {Object.keys(ingredientPrices.condiments).map(condiment => (
               <div key={condiment} className="checkbox-button">

@@ -46,3 +46,8 @@
   margin: auto;
   width: 50%;
 }
+
+.category-label {
+  display: block;
+  margin-bottom: 20px;
+}
