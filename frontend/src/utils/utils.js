@@ -52,3 +52,7 @@ export const calculateReviewsDistribution = (reviews) => {
   })
   return distribution;
 }
+
+export const formatIngredientName = (name) => {
+  return name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+};

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import "./ColdCutSandwichBuilder.css";
-import sandwich from "../../../assets/sandwich.jpg"
+import "./BreakfastSandwichBuilder.css";
+import breakfastSandwich from "../../../assets/breakfastsandwich.jpg";
 import Modal from "../../Modal/Modal";
 import { formatIngredientName } from "../../../utils/utils";
 
@@ -13,10 +13,13 @@ const ingredientPrices = {
   },
   meat: {
     pastrami: 2.00,
-    honey_turkey: 2.00,
+    turkey: 2.00,
     ham: 2.00,
     salami: 2.00,
-    chicken: 2.50,
+    pork_bacon: 1.00,
+    turkey_bacon: 1.00,
+    patty_sausage: 1.00,
+    link_sausage: 1.00
   },
   cheese: {
     american: 1.00,
@@ -41,38 +44,39 @@ const ingredientPrices = {
     hot: 0.00
   },
   hot: 0.00,
-  toasted: 0.00
+  toasted: 0.00,
+  eggs: 0.50
 };
+
 
 const calculateTotalPrice = (ingredients) => {
   let total = 0;
 
   if (ingredients.bread) total += ingredientPrices.bread[ingredients.bread];
-
   ingredients.meat.forEach(item => {
     total += ingredientPrices.meat[item];
   });
-
   ingredients.cheese.forEach(item => {
     total += ingredientPrices.cheese[item];
   });
-
   ingredients.veggies.forEach(item => {
     total += ingredientPrices.veggies[item];
   });
+  total += ingredients.eggs * ingredientPrices.eggs; // Include the cost of eggs
 
   return total;
 };
 
-const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
+const BreakfastSandwichBuilder = ({ isOpen, onClose }) => {
   const [ingredients, setIngredients] = useState({
     bread: '',
     meat: [],
     cheese: [],
     veggies: [],
     condiments: [],
+    eggs: 1,
     hot: false,
-    toasted: false
+    toasted: false,
   });
   const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch();
@@ -85,7 +89,7 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
   const handleIngredientChange = (key, value) => {
     const updatedIngredients = {
       ...ingredients,
-      [key]: value
+      [key]: value,
     };
     setIngredients(updatedIngredients);
     updateTotalPrice(updatedIngredients);
@@ -98,15 +102,18 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
     handleIngredientChange(key, updatedArray);
   };
 
+  const handleEggsChange = (e) => {
+    const eggs = parseInt(e.target.value, 10);
+    handleIngredientChange('eggs', eggs);
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="sandwich-builder-container">
-        <h2 className="sandwich-builder-header">Build your own cold cut sandwich</h2>
-        <img alt="sandwich" src={sandwich}/>
-
+        <h2 className="sandwich-builder-header">Build your own breakfast sandwich</h2>
+        <img alt="breakfast sandwich" src={breakfastSandwich} />
 
         <form className="sandwich-builder-form">
-
           <div className="ingredient-selector">
             <label className="category-label">Bread:</label>
             <div className="radio-buttons">
@@ -180,34 +187,29 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
           </div>
 
           <div className="ingredient-selector">
-            <label className="category-label">Condiments:</label>
-            <div className="checkbox-buttons">
-              {Object.keys(ingredientPrices.condiments).map(condiment => (
-                <div key={condiment} className="checkbox-button">
-                  <input 
-                    type="checkbox" 
-                    name="condiments" 
-                    value={condiment} 
-                    checked={ingredients.condiments.includes(condiment)} 
-                    onChange={(e) => handleCheckboxChange('condiments', e.target.value)} 
-                  />
-                  <label>{formatIngredientName(condiment)}</label>
-                </div>
-              ))}
-            </div>
+            <label className="category-label">Eggs:</label>
+            <input 
+              type="number" 
+              name="eggs" 
+              min="1" 
+              max="5" 
+              value={ingredients.eggs} 
+              onChange={handleEggsChange} 
+            />
+            <label>( + ${ingredientPrices.eggs.toFixed(2)} per egg )</label>
           </div>
 
           <div className="hot-toasted-checkbox">
-          <label>
-            Hot:
-            <input type="checkbox" checked={ingredients.hot} onChange={(e) => handleIngredientChange('hot', e.target.checked)} />
-          </label>
+            <label>
+              Hot:
+              <input type="checkbox" checked={ingredients.hot} onChange={(e) => handleIngredientChange('hot', e.target.checked)} />
+            </label>
           </div>
           <div className="hot-toasted-checkbox">
-          <label>
-            Toasted:
-            <input type="checkbox" checked={ingredients.toasted} onChange={(e) => handleIngredientChange('toasted', e.target.checked)} />
-          </label>
+            <label>
+              Toasted:
+              <input type="checkbox" checked={ingredients.toasted} onChange={(e) => handleIngredientChange('toasted', e.target.checked)} />
+            </label>
           </div>
           <div className="total-price">Total Price: ${totalPrice.toFixed(2)}</div>
           <button type="submit" className="add-to-cart-btn">Add to Cart</button>
@@ -217,4 +219,4 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
   );
 };
 
-export default ColdCutSandwichBuilder;
+export default BreakfastSandwichBuilder;
