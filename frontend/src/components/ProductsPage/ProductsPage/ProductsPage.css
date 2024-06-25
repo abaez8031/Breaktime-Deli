@@ -1,0 +1,30 @@
+.products-page {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-page-header {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.product {
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+.product-img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}

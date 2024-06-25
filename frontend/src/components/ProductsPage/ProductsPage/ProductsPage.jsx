@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ColdCutSandwichBuilder from "../ColdCutSandwichBuilder/ColdCutSandwichBuilder";
+import "./ProductsPage.css"
+import sandwich from "../../../assets/sandwich.jpg"
 
 
 const ProductsPage = () => {
@@ -8,9 +10,14 @@ const ProductsPage = () => {
   const closeColdCutModal = () => setIsColdCutModalOpen(false);
   return (
     <div className="products-page">
-      <h1>Our Products</h1>
+      <h2 className="products-page-header">Our Products</h2>
       <div className="product" onClick={openColdCutModal}>
-        Cold Cut Sandwich
+        <img className="product-img" src={sandwich} alt="sandwich"></img>
+        <p>Customize a cold cut sandwich</p>
+      </div>
+
+      <div className="product">
+
       </div>
       <ColdCutSandwichBuilder isOpen={isColdCutModalOpen} onClose={closeColdCutModal} />
     </div>
