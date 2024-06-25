@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./ColdCutSandwichBuilder.css";
+import sandwich from "../../../assets/sandwich.jpg"
 
 const ingredientPrices = {
   bread: {
@@ -9,22 +10,26 @@ const ingredientPrices = {
     hero: 2.00,
   },
   meat: {
+    pastrami: 2.00,
     turkey: 2.00,
     ham: 2.00,
+    salami: 2.00,
     chicken: 2.50,
   },
   cheese: {
+    american: 1.00,
     cheddar: 1.00,
     swiss: 1.00,
-    provolone: 1.00,
-    gouda: 1.00,
     pepper: 1.00,
-    parmesan: 1.00
+    mozzarella: 1.00,
+    meunster: 1.00
   },
   veggies: {
     lettuce: 0.50,
     tomato: 0.50,
     onion: 0.50,
+    pickles: 0.50,
+    jalapeno: 0.50
   },
   condiments: {
     mayo: 0.00,
@@ -93,8 +98,9 @@ const ColdCutSandwichBuilder = () => {
 
   return (
     <div className="sandwich-builder-container">
+      <h2 className="sandwich-builder-header">Build your own cold cut sandwich</h2>
+      <img alt="sandwich" src={sandwich}/>
 
-      <h2>Build your own cold cut sandwich</h2>
 
       <form className="sandwich-builder-form">
 
@@ -110,7 +116,7 @@ const ColdCutSandwichBuilder = () => {
                   checked={ingredients.bread === bread} 
                   onChange={(e) => handleIngredientChange('bread', e.target.value)} 
                 />
-                <label>{bread.charAt(0).toUpperCase() + bread.slice(1)} ${ingredientPrices.bread[bread].toFixed(2)}</label>
+                <label>{bread.charAt(0).toUpperCase() + bread.slice(1)} ( + ${ingredientPrices.bread[bread].toFixed(2)} )</label>
               </div>
             ))}
           </div>
@@ -128,7 +134,7 @@ const ColdCutSandwichBuilder = () => {
                   checked={ingredients.meat.includes(meat)} 
                   onChange={(e) => handleCheckboxChange('meat', e.target.value)} 
                 />
-                <label>{meat}</label>
+                <label>{meat.charAt(0).toUpperCase() + meat.slice(1)} ( + ${ingredientPrices.meat[meat].toFixed(2)} )</label>
               </div>
             ))}
           </div>
@@ -146,7 +152,7 @@ const ColdCutSandwichBuilder = () => {
                   checked={ingredients.cheese.includes(cheese)} 
                   onChange={(e) => handleCheckboxChange('cheese', e.target.value)} 
                 />
-                <label>{cheese}</label>
+                <label>{cheese.charAt(0).toUpperCase() + cheese.slice(1)} ( + ${ingredientPrices.cheese[cheese].toFixed(2)})</label>
               </div>
             ))}
           </div>
@@ -164,7 +170,7 @@ const ColdCutSandwichBuilder = () => {
                   checked={ingredients.veggies.includes(veggie)} 
                   onChange={(e) => handleCheckboxChange('veggies', e.target.value)} 
                 />
-                <label>{veggie}</label>
+                <label>{veggie.charAt(0).toUpperCase() + veggie.slice(1)} ( + ${ingredientPrices.veggies[veggie].toFixed(2)})</label>
               </div>
             ))}
           </div>
@@ -182,20 +188,24 @@ const ColdCutSandwichBuilder = () => {
                   checked={ingredients.condiments.includes(condiment)} 
                   onChange={(e) => handleCheckboxChange('condiments', e.target.value)} 
                 />
-                <label>{condiment}</label>
+                <label>{condiment.charAt(0).toUpperCase() + condiment.slice(1)}</label>
               </div>
             ))}
           </div>
         </div>
 
+        <div className="hot-toasted-checkbox">
         <label>
           Hot:
           <input type="checkbox" checked={ingredients.hot} onChange={(e) => handleIngredientChange('hot', e.target.checked)} />
         </label>
+        </div>
+        <div className="hot-toasted-checkbox">
         <label>
           Toasted:
           <input type="checkbox" checked={ingredients.toasted} onChange={(e) => handleIngredientChange('toasted', e.target.checked)} />
         </label>
+        </div>
         <div className="total-price">Total Price: ${totalPrice.toFixed(2)}</div>
         <button type="submit" className="add-to-cart-btn">Add to Cart</button>
       </form>

@@ -1,0 +1,48 @@
+.sandwich-builder-container {
+  border: 2px solid black;
+  margin: auto;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 20px;
+  color: #005f73;
+}
+
+.sandwich-builder-header {
+  font-size: 1.5em;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.sandwich-builder-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-buttons, .checkbox-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ingredient-selector {
+  padding: 10px 0;
+}
+
+.hot-toasted-checkbox, .total-price {
+  padding: 5px 0;
+}
+
+.radio-button,
+.checkbox-button {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.add-to-cart-btn {
+  margin-top: 10px;
+  margin: auto;
+  width: 50%;
+}
