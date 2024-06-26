@@ -8,15 +8,12 @@ const sandwichSchema = new Schema({
   },
   meat: {
     type: [String],
-    required: true
   },
   cheese: {
     type: [String],
-    required: true
   },
   veggies: {
     type: [String],
-    required: true
   },
   eggs: { 
     type: Number, 
@@ -24,7 +21,6 @@ const sandwichSchema = new Schema({
   },
   condiments: {
     type: [String],
-    required: true
   },
   hot: {
     type: Boolean,
