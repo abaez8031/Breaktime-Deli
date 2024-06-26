@@ -102,18 +102,19 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
   const handleAddToCart = (e) => {
     e.preventDefault();
     const sandwich = {
-      ...ingredients
+      ...ingredients,
+      totalPrice
     }
     dispatch(addToCart(sandwich));
     onClose();
     setIngredients({
       bread: '',
-    meat: [],
-    cheese: [],
-    veggies: [],
-    condiments: [],
-    hot: false,
-    toasted: false
+      meat: [],
+      cheese: [],
+      veggies: [],
+      condiments: [],
+      hot: false,
+      toasted: false
     });
     setTotalPrice(0);
   }

@@ -4,6 +4,7 @@ import "./BreakfastSandwichBuilder.css";
 import breakfastSandwich from "../../../assets/breakfastsandwich.jpg";
 import Modal from "../../Modal/Modal";
 import { formatIngredientName } from "../../../utils/utils";
+import { addToCart } from "../../../store/cart";
 
 const ingredientPrices = {
   bread: {
@@ -74,7 +75,7 @@ const BreakfastSandwichBuilder = ({ isOpen, onClose }) => {
     cheese: [],
     veggies: [],
     condiments: [],
-    eggs: 1,
+    eggs: 0,
     hot: false,
     toasted: false,
   });
@@ -103,9 +104,30 @@ const BreakfastSandwichBuilder = ({ isOpen, onClose }) => {
   };
 
   const handleEggsChange = (e) => {
-    const eggs = parseInt(e.target.value, 10);
+    let eggs = parseInt(e.target.value, 10);
+    if (isNaN(eggs) || eggs < 0) {
+      eggs = 0;
+    }
     handleIngredientChange('eggs', eggs);
   };
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    const sandwich = {...ingredients, totalPrice};
+    dispatch(addToCart(sandwich));
+    onClose();
+    setIngredients({
+      bread: '',
+      meat: [],
+      cheese: [],
+      veggies: [],
+      condiments: [],
+      eggs: 0,
+      hot: false,
+      toasted: false,
+    });
+    setTotalPrice(0);
+  }
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -212,7 +234,7 @@ const BreakfastSandwichBuilder = ({ isOpen, onClose }) => {
             </label>
           </div>
           <div className="total-price">Total Price: ${totalPrice.toFixed(2)}</div>
-          <button type="submit" className="add-to-cart-btn">Add to Cart</button>
+          <button type="submit" className="add-to-cart-btn" onClick={handleAddToCart}>Add to Cart</button>
         </form>
       </div>
     </Modal>
