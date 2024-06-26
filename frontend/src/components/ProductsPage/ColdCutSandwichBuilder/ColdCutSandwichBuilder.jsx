@@ -4,6 +4,7 @@ import "./ColdCutSandwichBuilder.css";
 import sandwich from "../../../assets/sandwich.jpg"
 import Modal from "../../Modal/Modal";
 import { formatIngredientName } from "../../../utils/utils";
+import { addToCart } from "../../../store/cart";
 
 const ingredientPrices = {
   bread: {
@@ -97,6 +98,25 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
       : [...ingredients[key], value];
     handleIngredientChange(key, updatedArray);
   };
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    const sandwich = {
+      ...ingredients
+    }
+    dispatch(addToCart(sandwich));
+    onClose();
+    setIngredients({
+      bread: '',
+    meat: [],
+    cheese: [],
+    veggies: [],
+    condiments: [],
+    hot: false,
+    toasted: false
+    });
+    setTotalPrice(0);
+  }
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -210,7 +230,7 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
           </label>
           </div>
           <div className="total-price">Total Price: ${totalPrice.toFixed(2)}</div>
-          <button type="submit" className="add-to-cart-btn">Add to Cart</button>
+          <button type="submit" className="add-to-cart-btn" onClick={handleAddToCart}>Add to Cart</button>
         </form>
       </div>
     </Modal>
