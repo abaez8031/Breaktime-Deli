@@ -18,6 +18,10 @@ const sandwichSchema = new Schema({
     type: [String],
     required: true
   },
+  eggs: { 
+    type: Number, 
+    default: 0
+  },
   condiments: {
     type: [String],
     required: true

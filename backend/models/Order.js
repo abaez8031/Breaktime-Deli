@@ -8,8 +8,17 @@ const orderSchema = new Schema({
   }],
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User', required: true
-  }
+    ref: 'User',
+    required: true
+  },
+  totalPrice: {
+    type: Number,
+    required: true
+  },
+  orderDate: {
+    type: Date,
+    default: Date.now
+  },
 }, {
   timestamps: true
 })
