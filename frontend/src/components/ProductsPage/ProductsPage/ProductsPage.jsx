@@ -4,11 +4,14 @@ import BreakfastSandwichBuilder from "../BreakfastSandwichBuilder/BreakfastSandw
 import "./ProductsPage.css"
 import coldCutSandwich from "../../../assets/sandwich.jpg"
 import breakfastSandwich from "../../../assets/breakfastsandwich.jpg";
+import CartSidebar from "../CartSidebar/CartSidebar";
 
 
 const ProductsPage = () => {
   const [isColdCutModalOpen, setIsColdCutModalOpen] = useState(false);
   const [isBreakfastModalOpen, setIsBreakfastModalOpen] = useState(false);
+  const [isCartSidebarOpen, setIsCartSidebarOpen] = useState(false);
+  
   const openColdCutModal = () => setIsColdCutModalOpen(true);
   const closeColdCutModal = () => setIsColdCutModalOpen(false);
   const openBreakfastModal = () => setIsBreakfastModalOpen(true);
@@ -28,6 +31,7 @@ const ProductsPage = () => {
       </div>
       <ColdCutSandwichBuilder isOpen={isColdCutModalOpen} onClose={closeColdCutModal} />
       <BreakfastSandwichBuilder isOpen={isBreakfastModalOpen} onClose={closeBreakfastModal}/>
+      <CartSidebar/>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import ReviewsSummary from "../ReviewsSummary.jsx/ReviewsSummary";
 import CreateReviewForm from "../CreateReviewForm/CreateReviewForm";
 import ReviewsList from "../ReviewsList/ReviewsList";
 import EditReviewForm from "../EditReviewForm/EditReviewForm";
+import "./ReviewsPage.css"
 
 const ReviewsPage = () => {
   const dispatch = useDispatch();
@@ -19,12 +20,12 @@ const ReviewsPage = () => {
   }, [dispatch]);
 
   return (
-    <>
+      <div className="reviews-page-container">
       {userId && !hasReview && (<CreateReviewForm userId={userId}/>)}
       <ReviewsSummary reviews={reviews}/>
       {!isUpdatingReview && <ReviewsList setReviewBeingUpdated= {setReviewBeingUpdated} setIsUpdatingReview={setIsUpdatingReview} userId={userId} reviews={reviews}/>}
       {isUpdatingReview && <EditReviewForm reviewBeingUpdated={reviewBeingUpdated} setIsUpdatingReview={setIsUpdatingReview}/>}
-    </>
+      </div>
   );
 };
 

@@ -1,11 +1,15 @@
 .nav-bar {
-  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 15vh;
   background-color: #a2d2ff;
   display: flex;
   justify-content: space-between;
   background-image: linear-gradient(to right, #cdb4db, #a2d2ff);
   margin-bottom: 30px;
+  z-index: 1000;
 }
 
 .nav-bar li {
