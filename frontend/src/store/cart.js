@@ -1,6 +1,6 @@
-const ADD_TO_CART = "carts/ADD_TO_CART";
-const REMOVE_FROM_CART = "carts/REMOVE_FROM_CART";
-const CLEAR_CART = "carts/CLEAR_CART";
+const ADD_TO_CART = "cart/ADD_TO_CART";
+const REMOVE_FROM_CART = "cart/REMOVE_FROM_CART";
+const CLEAR_CART = "cart/CLEAR_CART";
 
 export const addToCart = sandwich => ({
   type: ADD_TO_CART,
