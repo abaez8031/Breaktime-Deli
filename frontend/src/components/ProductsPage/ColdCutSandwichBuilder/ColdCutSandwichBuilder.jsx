@@ -9,6 +9,7 @@ import { addToCart } from "../../../store/cart";
 const ingredientPrices = {
   bread: {
     white: 1.00,
+    bagel: 1.00,
     roll: 1.50,
     hero: 2.00,
   },
@@ -39,7 +40,8 @@ const ingredientPrices = {
     mustard: 0.00,
     ketchup: 0.00,
     barbecue: 0.00,
-    hot: 0.00
+    hot: 0.00,
+    butter: 0.00
   },
   hot: 0.00,
   toasted: 0.00
