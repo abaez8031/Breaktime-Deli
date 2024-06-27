@@ -11,9 +11,10 @@
 // }
 
 import "./CartItem.css"
+import { formatIngredientName } from "../../../utils/utils";
 
 const CartItem = ({sandwich}) => {
-  const {
+  let {
     bread,
     cheese,
     condiments,
@@ -24,6 +25,13 @@ const CartItem = ({sandwich}) => {
     totalPrice,
     veggies
   } = sandwich;
+
+  bread = formatIngredientName(bread)
+  cheese = cheese.map(cheese => formatIngredientName(cheese))
+  condiments = condiments.map(condiment => formatIngredientName(condiment))
+  meat = meat.map(meat => formatIngredientName(meat))
+  veggies = veggies.map(veggie => formatIngredientName(veggie))
+  // button to remove item from cart
   return (
     <li className="cart-item">
       <div className="cart-item-header">
