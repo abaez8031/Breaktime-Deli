@@ -35,7 +35,7 @@ const CartSidebar = ({isOpen, onClose}) => {
     }
   ]
   return (
-    <div className="cart-sidebar-container">
+    <div className={`cart-sidebar-container ${isOpen ? "open" : ""}`}>
       <button className="close-sidebar-btn" onClick={onClose}>x</button>
       <h2 className="cart-sidebar-header">Your Cart</h2>
       <ul className="cart-list">

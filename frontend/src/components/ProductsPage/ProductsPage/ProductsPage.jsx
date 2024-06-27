@@ -36,7 +36,10 @@ const ProductsPage = () => {
       </div>
       <ColdCutSandwichBuilder isOpen={isColdCutModalOpen} onClose={closeColdCutModal} />
       <BreakfastSandwichBuilder isOpen={isBreakfastModalOpen} onClose={closeBreakfastModal}/>
-      <CartSidebar sandwiches={sandwiches} isOpen={isCartSidebarOpen} onClose={closeCartSidebar}/>
+      {!isCartSidebarOpen &&<button className="cart-open-btn" onClick={openCartSidebar}>
+      &lt;
+      </button>}
+      {<CartSidebar sandwiches={sandwiches} isOpen={isCartSidebarOpen} onClose={closeCartSidebar}/>}
     </div>
   );
 }

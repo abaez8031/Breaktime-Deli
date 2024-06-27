@@ -29,3 +29,17 @@
   height: auto;
   border-radius: 10px;
 }
+
+.cart-open-btn {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: #cdb4db;
+  color: white;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}

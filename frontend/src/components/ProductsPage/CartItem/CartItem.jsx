@@ -27,7 +27,7 @@ const CartItem = ({sandwich}) => {
   return (
     <li className="cart-item">
       <div className="cart-item-header">
-        <h3>{meat.join(', ')} Sandwich</h3>
+        <h2>{meat.join(', ')} Sandwich</h2>
         <span className="cart-item-price">${totalPrice.toFixed(2)}</span>
       </div>
       <div className="cart-item-details">
