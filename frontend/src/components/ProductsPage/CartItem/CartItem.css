@@ -2,6 +2,7 @@
   border-bottom: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .cart-item-header {
@@ -21,4 +22,14 @@
 
 .cart-item-details p {
   margin: 5px 0;
+}
+
+.remove-cart-item-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background-color: #bde0fe;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
 }
