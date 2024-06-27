@@ -55,7 +55,7 @@ const CartItem = ({sandwich}) => {
         <p><strong>Hot:</strong> {hot ? 'Yes' : 'No'}</p>
         <p><strong>Toasted:</strong> {toasted ? 'Yes' : 'No'}</p>
       </div>
-      <button onClick={handleRemoveItem} className="remove-cart-item-btn">Remove Item</button>
+      {/* <button onClick={handleRemoveItem} className="remove-cart-item-btn">Remove Item</button> */}
     </li>
   )
 }
