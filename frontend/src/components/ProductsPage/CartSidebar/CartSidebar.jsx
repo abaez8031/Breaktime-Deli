@@ -22,6 +22,16 @@ const CartSidebar = ({isOpen, onClose}) => {
       toasted: true,
       totalPrice: 5,
       veggies: []
+    },
+    {
+      bread: "bagel",
+      cheese: ["cheddar"],
+      condiments: [],
+      hot: true,
+      meat: ["pastrami"],
+      toasted: true,
+      totalPrice: 5,
+      veggies: []
     }
   ]
   return (

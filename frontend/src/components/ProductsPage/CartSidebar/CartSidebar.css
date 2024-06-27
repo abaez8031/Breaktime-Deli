@@ -31,4 +31,5 @@
 
 .cart-list {
   width: 100%;
+  overflow: scroll;
 }
