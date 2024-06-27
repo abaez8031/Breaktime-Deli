@@ -41,5 +41,5 @@
   border-radius: 5px 0 0 5px;
   padding: 10px;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 999;
 }

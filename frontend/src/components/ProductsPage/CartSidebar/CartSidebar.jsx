@@ -46,12 +46,16 @@ const CartSidebar = ({sandwiches, isOpen, onClose}) => {
     <div className={`cart-sidebar-container ${isOpen ? "open" : ""}`}>
       <button className="close-sidebar-btn" onClick={onClose}>x</button>
       <h2 className="cart-sidebar-header">Your Cart</h2>
+      {sandwiches.length === 0 && <p className="empty-cart-text">Your cart is empty</p>}
+      {sandwiches.length > 0 && 
+      <>
       <ul className="cart-list">
         {sandwiches.map((sandwich) => (
           <CartItem sandwich={sandwich}/>
         ))}
       </ul>
-      {sandwiches.length > 0 && <button className="clear-cart-btn" onClick={handleClearCart}>Clear Cart</button>}
+      <button className="clear-cart-btn" onClick={handleClearCart}>Clear Cart</button>
+      </>}
     </div>
   )
 }

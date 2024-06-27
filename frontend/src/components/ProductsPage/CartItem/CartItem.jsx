@@ -1,15 +1,3 @@
-// {
-// bread: "white"
-// cheese: ['american']
-// condiments: []
-// eggs: 0
-// hot: false
-// meat: ['pastrami']
-// toasted: false
-// totalPrice: 5
-// veggies: ['lettuce', 'tomato']
-// }
-
 import "./CartItem.css"
 import { formatIngredientName } from "../../../utils/utils";
 import { useDispatch } from "react-redux";
@@ -26,7 +14,8 @@ const CartItem = ({sandwich}) => {
     meat,
     toasted,
     totalPrice,
-    veggies
+    veggies,
+    id
   } = sandwich;
 
   bread = formatIngredientName(bread)
@@ -35,11 +24,10 @@ const CartItem = ({sandwich}) => {
   meat = meat.map(meat => formatIngredientName(meat))
   veggies = veggies.map(veggie => formatIngredientName(veggie))
 
-  // const handleRemoveItem = () => {
-  //   dispatch(removeFromCart())
-  // }
+  const handleRemoveItem = () => {
+    dispatch(removeFromCart(id))
+  }
 
-  // sandwich state needs to be turned into an object
   return (
     <li className="cart-item">
       <div className="cart-item-header">
@@ -55,7 +43,7 @@ const CartItem = ({sandwich}) => {
         <p><strong>Hot:</strong> {hot ? 'Yes' : 'No'}</p>
         <p><strong>Toasted:</strong> {toasted ? 'Yes' : 'No'}</p>
       </div>
-      {/* <button onClick={handleRemoveItem} className="remove-cart-item-btn">Remove Item</button> */}
+      <button onClick={handleRemoveItem} className="remove-cart-item-btn">Remove Item</button>
     </li>
   )
 }
