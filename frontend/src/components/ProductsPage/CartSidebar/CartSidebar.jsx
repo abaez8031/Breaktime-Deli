@@ -9,38 +9,6 @@ const CartSidebar = ({sandwiches, isOpen, onClose}) => {
     dispatch(clearCart())
   }
 
-  // const sandwiches = [
-  //   {
-  //     bread: "white",
-  //     cheese: ["american"],
-  //     condiments: ["mayo", "mustard"],
-  //     hot: true,
-  //     meat: ["pastrami"],
-  //     toasted: true,
-  //     totalPrice: 5.5,
-  //     veggies: ["lettuce", "tomato", "onion"]
-  //   },
-  //   {
-  //     bread: "bagel",
-  //     cheese: ["cheddar"],
-  //     condiments: [],
-  //     hot: true,
-  //     meat: ["pastrami"],
-  //     toasted: true,
-  //     totalPrice: 5,
-  //     veggies: []
-  //   },
-  //   {
-  //     bread: "bagel",
-  //     cheese: ["cheddar"],
-  //     condiments: [],
-  //     hot: true,
-  //     meat: ["pastrami"],
-  //     toasted: true,
-  //     totalPrice: 5,
-  //     veggies: []
-  //   }
-  // ]
   return (
     <div className={`cart-sidebar-container ${isOpen ? "open" : ""}`}>
       <button className="close-sidebar-btn" onClick={onClose}>x</button>
