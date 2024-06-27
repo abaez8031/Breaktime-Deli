@@ -9,7 +9,8 @@
   transition: right 0.3s ease;
   z-index: 999;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .close-sidebar-btn {
@@ -26,4 +27,8 @@
   margin-top: 30px;
   font-size: 24px;
   font-weight: bold;
+}
+
+.cart-list {
+  width: 100%;
 }

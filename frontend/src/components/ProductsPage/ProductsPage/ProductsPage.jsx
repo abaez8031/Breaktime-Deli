@@ -5,6 +5,7 @@ import "./ProductsPage.css"
 import coldCutSandwich from "../../../assets/sandwich.jpg"
 import breakfastSandwich from "../../../assets/breakfastsandwich.jpg";
 import CartSidebar from "../CartSidebar/CartSidebar";
+import { useSelector } from "react-redux";
 
 
 const ProductsPage = () => {
@@ -16,6 +17,10 @@ const ProductsPage = () => {
   const closeColdCutModal = () => setIsColdCutModalOpen(false);
   const openBreakfastModal = () => setIsBreakfastModalOpen(true);
   const closeBreakfastModal = () => setIsBreakfastModalOpen(false);
+  const closeCartSidebar = () => setIsCartSidebarOpen(false);
+  const openCartSidebar = () => setIsCartSidebarOpen(true);
+
+  const sandwiches = useSelector(state => state.cart.sandwiches)
 
   return (
     <div className="products-page">
@@ -31,7 +36,7 @@ const ProductsPage = () => {
       </div>
       <ColdCutSandwichBuilder isOpen={isColdCutModalOpen} onClose={closeColdCutModal} />
       <BreakfastSandwichBuilder isOpen={isBreakfastModalOpen} onClose={closeBreakfastModal}/>
-      <CartSidebar/>
+      <CartSidebar sandwiches={sandwiches} isOpen={isCartSidebarOpen} onClose={closeCartSidebar}/>
     </div>
   );
 }
