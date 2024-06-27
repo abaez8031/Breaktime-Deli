@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux"
 import { clearCart } from "../../../store/cart";
 
 const CartSidebar = ({sandwiches, isOpen, onClose}) => {
-  // clear cart button
   const dispatch = useDispatch();
   const handleClearCart = () => {
     dispatch(clearCart())
