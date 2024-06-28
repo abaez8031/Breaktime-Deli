@@ -68,6 +68,7 @@ const calculateTotalPrice = (ingredients) => {
 };
 
 const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
+  // error handling
   const [ingredients, setIngredients] = useState({
     bread: '',
     meat: [],

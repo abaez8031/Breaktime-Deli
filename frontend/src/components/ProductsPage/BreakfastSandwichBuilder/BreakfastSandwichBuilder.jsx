@@ -71,6 +71,7 @@ const calculateTotalPrice = (ingredients) => {
 };
 
 const BreakfastSandwichBuilder = ({ isOpen, onClose }) => {
+  // error handling
   const [ingredients, setIngredients] = useState({
     bread: '',
     meat: [],
