@@ -13,6 +13,7 @@ const ProductsPage = () => {
   const [isBreakfastModalOpen, setIsBreakfastModalOpen] = useState(false);
   const [isCartSidebarOpen, setIsCartSidebarOpen] = useState(false);
   
+  
   const openColdCutModal = () => setIsColdCutModalOpen(true);
   const closeColdCutModal = () => setIsColdCutModalOpen(false);
   const openBreakfastModal = () => setIsBreakfastModalOpen(true);

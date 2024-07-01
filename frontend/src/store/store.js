@@ -6,6 +6,7 @@ import errors from "./errors";
 import reviews from "./reviews"
 import products from "./products"
 import cart from "./cart"
+import orders from "./orders";
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   reviews,
   products,
   errors,
-  cart
+  cart,
+  orders
 })
 
 let enhancer;
