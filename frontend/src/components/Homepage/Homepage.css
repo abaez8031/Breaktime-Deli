@@ -1,3 +1,26 @@
-.homepage-container {
-  margin-top: 15vh;
+.homepage {
+  font-family: Arial, sans-serif;
+  margin-top: 25vh;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  background-image: url("../../assets/herosandwich.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 16px;
+  text-align: center;
+  padding: 100px 20px;
+  box-sizing: border-box;
+}
+
+.hero h1, .hero p, .hero a {
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background for text */
+  padding: 10px;
+  margin: 10px 0;
 }
