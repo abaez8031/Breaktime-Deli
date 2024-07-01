@@ -79,6 +79,7 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
     toasted: false
   });
   const [totalPrice, setTotalPrice] = useState(0);
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
 
   const updateTotalPrice = (updatedIngredients) => {
@@ -104,6 +105,14 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
+    if (!ingredients.bread) {
+      setErrorMessage("Please select a type of bread")
+      return;
+    }
+    if (ingredients.meat.length === 0 && ingredients.cheese.length === 0) {
+      setErrorMessage("Please select at least one meat or cheese")
+      return;
+    }
     const sandwich = {
       ...ingredients,
       totalPrice
@@ -120,6 +129,7 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
       toasted: false
     });
     setTotalPrice(0);
+    setErrorMessage("");
   }
 
   return (
@@ -128,7 +138,7 @@ const ColdCutSandwichBuilder = ({ isOpen, onClose }) => {
         <h2 className="sandwich-builder-header">Build your own cold cut sandwich</h2>
         <img alt="sandwich" src={sandwich}/>
 
-
+        {errorMessage && <div className="errors">{errorMessage}</div>}
         <form className="sandwich-builder-form">
 
           <div className="ingredient-selector">

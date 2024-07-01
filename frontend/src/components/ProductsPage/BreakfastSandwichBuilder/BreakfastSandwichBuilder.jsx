@@ -84,6 +84,7 @@ const BreakfastSandwichBuilder = ({ isOpen, onClose }) => {
   });
   const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const updateTotalPrice = (updatedIngredients) => {
     const price = calculateTotalPrice(updatedIngredients);
@@ -116,6 +117,14 @@ const BreakfastSandwichBuilder = ({ isOpen, onClose }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
+    if (!ingredients.bread) {
+      setErrorMessage("Please select a type of bread")
+      return;
+    }
+    if (ingredients.meat.length === 0 && ingredients.cheese.length === 0) {
+      setErrorMessage("Please select at least one meat or cheese")
+      return;
+    }
     const sandwich = {...ingredients, totalPrice};
     dispatch(addToCart(sandwich));
     onClose();
@@ -130,6 +139,7 @@ const BreakfastSandwichBuilder = ({ isOpen, onClose }) => {
       toasted: false,
     });
     setTotalPrice(0);
+    setErrorMessage("")
   }
 
   return (
@@ -137,6 +147,7 @@ const BreakfastSandwichBuilder = ({ isOpen, onClose }) => {
       <div className="sandwich-builder-container">
         <h2 className="sandwich-builder-header">Build your own breakfast sandwich</h2>
         <img alt="breakfast sandwich" src={breakfastSandwich} />
+        {errorMessage && <div className="errors">{errorMessage}</div>}
 
         <form className="sandwich-builder-form">
           <div className="ingredient-selector">
