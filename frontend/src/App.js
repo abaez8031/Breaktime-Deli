@@ -10,6 +10,7 @@ import ReviewsPage from "./components/ReviewsPage/ReviewsPage/ReviewsPage";
 import SuggestionsPage from "./components/SuggestionsPage/SuggestionsPage/SuggestionsPage";
 import Homepage from "./components/Homepage/Homepage";
 import ProductsPage from "./components/ProductsPage/ProductsPage/ProductsPage";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,7 @@ const App = () => {
             <ProductsPage/>
           </Route>
         </Switch>
+        <Footer/>
       </>
     )
   );
