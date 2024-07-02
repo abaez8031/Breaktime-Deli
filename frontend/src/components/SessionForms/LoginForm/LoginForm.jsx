@@ -29,6 +29,10 @@ const LoginForm = () => {
     setPassword("");
   };
 
+  const handleDemoLogin = () => {
+    dispatch(login({username: "harrypotter", password: "potter"}))
+  }
+
   useEffect(() => {
     return () => {
       dispatch(clearSessionErrors());
@@ -60,6 +64,7 @@ const LoginForm = () => {
           <div className="errors">{errors?.password}</div>
           <button className="login-btn">Login</button>
         </form>
+          <button className="login-btn" onClick={handleDemoLogin}>Login Demo User</button>
       </div>
     </>
   );
