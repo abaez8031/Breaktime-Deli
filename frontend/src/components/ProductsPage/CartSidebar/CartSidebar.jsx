@@ -3,7 +3,7 @@ import CartItem from "../CartItem/CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../../../store/cart";
 import { createOrder } from "../../../store/orders";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CartSidebar = ({ sandwiches, isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -40,9 +40,20 @@ const CartSidebar = ({ sandwiches, isOpen, onClose }) => {
     }
   };
 
+  const handleCloseCart = () => {
+    setOrderSubmitted(false);
+    onClose();
+  }
+
+  useEffect(() => {
+    if (sandwiches.length > 0) {
+      setOrderSubmitted(false);
+    }
+  }, [sandwiches]);
+
   return (
     <div className={`cart-sidebar-container ${isOpen ? "open" : ""}`}>
-      <button className="close-sidebar-btn" onClick={onClose}>x</button>
+      <button className="close-sidebar-btn" onClick={handleCloseCart}>x</button>
       <h2 className="cart-sidebar-header">Your Cart</h2>
       {errorMessage && <div className="errors">{errorMessage}</div>}
       {orderSubmitted && <div className="success">Order submitted successfully!</div>}
