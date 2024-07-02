@@ -29,7 +29,7 @@ const ingredientPrices = {
     swiss: 1.00,
     pepper: 1.00,
     mozzarella: 1.00,
-    meunster: 1.00
+    muenster: 1.00
   },
   veggies: {
     lettuce: 0.50,
