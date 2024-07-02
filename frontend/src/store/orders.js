@@ -1,4 +1,3 @@
-import { clearCart } from "./cart";
 import jwtFetch from "./jwt";
 
 const RECEIVE_ORDER = "orders/RECEIVE_ORDER";
@@ -50,7 +49,6 @@ const ordersReducer = (state = initialState, action) => {
         error: null,
       };
     case RECEIVE_ORDER_ERROR:
-      console.log(action)
       return {
         ...state,
         error: action.err.message,
