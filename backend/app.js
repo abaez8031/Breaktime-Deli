@@ -47,6 +47,28 @@ app.use('/api/reviews', reviewsRouter);
 app.use('/api/suggestions', suggestionsRouter);
 app.use('/api/orders', ordersRouter);
 
+if (isProduction) {
+  const path = require('path');
+  // Serve the frontend's index.html file at the root route
+  app.get('/', (req, res) => {
+    res.cookie('CSRF-TOKEN', req.csrfToken());
+    res.sendFile(
+      path.resolve(__dirname, '../frontend', 'build', 'index.html')
+    );
+  });
+
+  // Serve the static assets in the frontend's build folder
+  app.use(express.static(path.resolve("../frontend/build")));
+
+  // Serve the frontend's index.html file at all other routes NOT starting with /api
+  app.get(/^(?!\/?api).*/, (req, res) => {
+    res.cookie('CSRF-TOKEN', req.csrfToken());
+    res.sendFile(
+      path.resolve(__dirname, '../frontend', 'build', 'index.html')
+    );
+  });
+}
+
 // Custom middleware for catching all unmatched requests and formatting a 404 error to be sent as the response.
 app.use((req, res, next) => {
   const err = new Error('Not Found');
